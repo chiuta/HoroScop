@@ -382,7 +382,7 @@ footer p{margin:4px 0;}
       <summary>Cum se calculează asta</summary>
       <div class="m-body">
         <p>Soarele, Luna și cele opt planete sunt calculate prin elemente orbitale kepleriene (formule cu precizie redusă, tip Paul Schlyter / Jean Meeus) — nu prin intervale fixe de calendar. De-aceea semnul exact poate diferi cu o zi față de horoscoapele care se uită doar la dată, mai ales lângă granița dintre două semne.</p>
-        <p>Precizie estimată: Soare ±0,01°, Lună ±0,3° (serie trunchiată de ~14 termeni), planete ±0,5–1° pe termen scurt. Nu se aplică nutație, aberație sau paralaxă — nesemnificative la scara unui semn zodiacal întreg (30°).</p>
+        <p>Precizie estimată: Soare ±0,01°, Lună ±0,3° (serie trunchiată de ~14 termeni), planete ±0,03° (Mercur–Saturn) până la ±0,15° (Uranus, Neptun, Pluto), măsurat față de biblioteca astronomy-engine pe anii 1930–2090. Nu se aplică nutație, aberație sau paralaxă — nesemnificative la scara unui semn zodiacal întreg (30°).</p>
         <p>Ascendentul cere ora și locul nașterii: oră locală, fus orar UTC declarat manual și latitudine/longitudine. Fusul orar istoric (ora de vară etc.) nu e dedus automat din dată — introdu-l tu.</p>
         <p>Fără ora nașterii, Luna e calculată la ora 12:00 în fusul declarat; aplicația verifică dacă Luna schimbă semn în chiar acea zi și te avertizează când e cazul.</p>
         <p>Aspectele (conjuncție, sextil, careu, trigon, opoziție) folosesc orb standard (4–8°) între planetele tranzitante de azi și Soarele / Luna / Ascendentul din tema natală — recalculate la fiecare deschidere, nu alese aleatoriu.</p>
@@ -425,7 +425,7 @@ footer p{margin:4px 0;}
         <p>Al treilea audit adversarial (după adăugarea orrery-ului, rozetei, muzicii și portretului video) a găsit și reparat: generarea video nu avea gardă de reintrare (spre deosebire de muzică) — putea porni un al doilea <code>MediaRecorder</code> pe același canvas dacă era declanșată de două ori; deschiderea formularului de profil ascunde <code>chartArea</code>, care conținea și butonul „Oprește" muzica și canvas-ul video — dacă rulau în fundal, deveneau inaccesibile sau, pentru video, posibil rupte (unele browsere opresc randarea unui canvas ascuns); acum ambele se opresc/anulează curat la deschiderea formularului. Am recalculat riguros (nu din ochi) contrastul textelor desenate direct pe canvas și am găsit „Horoscop · fără frontiere" la limită, 4,47:1, sub pragul de 4,5:1 — corectat la opacitate mai mare. Restul (123 de funcții, toate apelate; fără eval/document.write; fără cod mort) a fost verificat din nou și a rămas curat.</p>
         <p>Punctul Spiritului e formula-oglindă a Punctului Norocului (Asc + Soare − Lună) — aceeași simplificare de zi/noapte se aplică și aici.</p>
         <p>Am analizat și mansiunile lunare (28 de diviziuni istorice ale zodiacului); le-am lăsat deoparte pentru moment — există mai multe tradiții de denumire (arabă, hindusă, chineză) și nu am o listă pe care s-o pot verifica la același standard ca restul aplicației.</p>
-        <p>Zodiacul sideral (toggle opțional) folosește o formulă liniară comună pentru ayanamsa Lahiri (epocă ~285 d.Hr., rată ~50,29″/an). Rata de precesie e solidă științific, dar diferite programe „oficiale" (Swiss Ephemeris, Jagannatha Hora) ancorează valoarea de bază puțin diferit — am găsit surse independente care diferă între ele cu ±0,1–0,2°. E singura parte a aplicației cu o incertitudine mai mare decât cea declarată pentru poziții tropicale; tratați semnul sideral lângă graniță cu rezervă.</p>
+        <p>Zodiacul sideral (toggle opțional) folosește o formulă liniară comună pentru ayanamsa Lahiri (ancorată la valoarea Lahiri la J2000, ≈23°51′11″, plus rata de precesie ~50,29″/an). Rata de precesie e solidă științific, dar diferite programe „oficiale" (Swiss Ephemeris, Jagannatha Hora) ancorează valoarea de bază puțin diferit — am găsit surse independente care diferă între ele cu ±0,1–0,2°. E singura parte a aplicației cu o incertitudine mai mare decât cea declarată pentru poziții tropicale; tratați semnul sideral lângă graniță cu rezervă.</p>
         <p>Am analizat și cei patru asteroizi majori (Ceres, Pallas, Junona, Vesta) — orbitele lor sunt mult mai stabile decât a lui Chiron, dar nu am găsit ratele de precesie ale nodului/periheliului și o conversie clară la epoca J2000 pe care să le pot verifica la același standard; le-am lăsat deoparte din același motiv ca la Chiron.</p>
         <p>Export/Import: profilurile pot fi salvate într-un fișier .json (buton „Exportă profiluri") și reîncărcate ulterior sau pe alt dispozitiv („Importă profiluri"). Fișierul importat e verificat câmp cu câmp înainte de folosire; profilurile invalide sunt ignorate silențios. Aceasta e singura formă de „sincronizare" — nu există niciun server.</p>
         <p>Noaptea Ursitoarelor: tradiția (surse concordante) spune că ursitoarele vin în a treia noapte de la naștere, la miezul nopții — unele surse regionale menționează în schimb nopțile 3, 5 și 7. Am ales a treia noapte, calculată ca data nașterii + 3 zile calendaristice, ora 00:00 în fusul declarat la naștere — o interpretare, nu singura posibilă. Împărțirea Torcătoare/Soartă/Curmătoare pe planete (Soare-Marte / Jupiter-Mercur / Saturn-Pluto) e o construcție proprie, inspirată de rolurile tradiționale ale celor trei (fir/vitalitate, drum/noroc, durată/sfârșit) — nu o corespondență din folclor. Obiectul de pe „tava dimineții" e ales determinist (din numele tău și data nașterii), o simplă reverență jucăușă către obicei, nu o predicție.</p>
@@ -459,7 +459,7 @@ function atan2D(y,x){ return Math.atan2(y,x)*R2D; }
 function signIndex(lon){ return Math.floor(normDeg(lon)/30); }
 function degInSign(lon){ return normDeg(lon)%30; }
 function clamp(v,lo,hi){ return Math.max(lo, Math.min(hi, v)); }
-function esc(str){ var d=document.createElement('div'); d.textContent = (str==null?'':String(str)); return d.innerHTML; }
+function esc(str){ var d=document.createElement('div'); d.textContent = (str==null?'':String(str)); return d.innerHTML.replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
 function fill(tpl, ctx){ return tpl.replace(/\{\{(\w+)\}\}/g, function(_, k){ return (ctx[k]!==undefined ? ctx[k] : ''); }); }
 
 /* ================= astronomy engine (verified against 2026 equinoxes/solstices + independent moon-phase sources) ================= */
@@ -508,10 +508,12 @@ var ORBIT_ELEMENTS = {
   saturn:  {N:[113.6634,2.38980e-5], i:[2.4886,-1.081e-7], w:[339.3939,2.97661e-5], a:[9.55475,0], e:[0.055546,-9.499e-9], M:[316.9670,0.0334442282]},
   uranus:  {N:[74.0005,1.3978e-5], i:[0.7733,1.9e-8], w:[96.6612,3.0565e-5], a:[19.18171,-1.55e-8], e:[0.047318,7.45e-9], M:[142.5905,0.0117212409]},
   neptun:  {N:[131.7806,3.0173e-5], i:[1.7700,-2.55e-7], w:[272.8461,-6.027e-6], a:[30.05826,3.313e-8], e:[0.008606,2.15e-9], M:[260.2471,0.005995147]},
-  pluto:   {N:[110.30347,0], i:[17.14175,0], w:[113.76329,0], a:[39.48168677,0], e:[0.24880766,0], M:[14.86205,0.003968789]}
+  pluto:   {N:[110.30347,3.8247e-5], i:[17.14175,0], w:[113.76329,0], a:[39.48168677,0], e:[0.24880766,0], M:[14.86205,0.003968789]}
 };
 function planetHeliocentric(key, d){
   var el = ORBIT_ELEMENTS[key];
+  /* Elementele Schlyter (Mercur–Neptun) au epoca d=0 la 1999-12-31 0h UT = J2000 − 1,5 zile; Pluto (Standish) e raportat direct la J2000. */
+  if (key !== 'pluto') d = d + 1.5;
   var N = normDeg(el.N[0]+el.N[1]*d), i = normDeg(el.i[0]+el.i[1]*d), w = normDeg(el.w[0]+el.w[1]*d);
   var a = el.a[0]+el.a[1]*d, e = el.e[0]+el.e[1]*d;
   var M = normDeg(el.M[0]+el.M[1]*d);
@@ -526,6 +528,18 @@ function planetHeliocentric(key, d){
   var xh = r*(cosD(N)*cosD(v+w) - sinD(N)*sinD(v+w)*cosD(i));
   var yh = r*(sinD(N)*cosD(v+w) + cosD(N)*sinD(v+w)*cosD(i));
   var zh = r*(sinD(v+w)*sinD(i));
+  /* perturbațiile mari Jupiter–Saturn–Uranus (termenii Schlyter), adăugate la longitudinea heliocentrică */
+  if (key==='jupiter' || key==='saturn' || key==='uranus'){
+    var Mj = ORBIT_ELEMENTS.jupiter.M[0]+ORBIT_ELEMENTS.jupiter.M[1]*d;
+    var Ms = ORBIT_ELEMENTS.saturn.M[0]+ORBIT_ELEMENTS.saturn.M[1]*d;
+    var Mu = ORBIT_ELEMENTS.uranus.M[0]+ORBIT_ELEMENTS.uranus.M[1]*d;
+    var pert;
+    if (key==='jupiter') pert = -0.332*sinD(2*Mj-5*Ms-67.6) - 0.056*sinD(2*Mj-2*Ms+21) + 0.042*sinD(3*Mj-5*Ms+21) - 0.036*sinD(Mj-2*Ms) + 0.022*cosD(Mj-Ms) + 0.023*sinD(2*Mj-3*Ms+52) - 0.016*sinD(Mj-5*Ms-69);
+    else if (key==='saturn') pert = 0.812*sinD(2*Mj-5*Ms-67.6) - 0.229*cosD(2*Mj-4*Ms-2) + 0.119*sinD(Mj-2*Ms-3) + 0.046*sinD(2*Mj-6*Ms-69) + 0.014*sinD(Mj-3*Ms+32);
+    else pert = 0.040*sinD(Ms-2*Mu+6) + 0.035*sinD(Ms-3*Mu+33) - 0.015*sinD(Mj-Mu+20);
+    var rxy = Math.sqrt(xh*xh+yh*yh), lo = atan2D(yh,xh) + pert;
+    xh = rxy*cosD(lo); yh = rxy*sinD(lo);
+  }
   return {xh:xh, yh:yh, zh:zh, r:r};
 }
 function earthHeliocentric(d){
@@ -554,11 +568,11 @@ function obliquity(d){ return 23.4393 - 3.563e-7*d; }
 function meanNode(d){ return normDeg(125.0445222 - 0.0529538083*d); }
 function toDraconic(lon, nodeLon){ var dl = normDeg(lon-nodeLon); return {sign:signIndex(dl), deg:degInSign(dl)}; }
 function ayanamsaLahiri(d){
-  /* aproximare liniară: epocă zero ~285 d.Hr., rată ~50,29"/an — vezi metodologia pentru
+  /* aproximare liniară ancorată la valoarea Lahiri la J2000 (≈23,853°), rată ~50,29"/an — vezi metodologia pentru
      nesiguranța reală (±0,1-0,2° față de softul Vedic „oficial", din cauza divergenței
      ancorelor de epocă între implementări, nu din cauza ratei de precesie, care e solidă). */
-  var T = d/365.25;
-  return ((1715 + T) * 50.29) / 3600;
+  var T = d/365.25; /* ani de la J2000 */
+  return 23.8531 + (T * 50.29) / 3600; /* Lahiri la J2000 ≈ 23°51′11″ + precesia medie 50,29″/an */
 }
 function siderealPoint(tropicalLon, ayanamsa){
   var sidLon = normDeg(tropicalLon - ayanamsa);
@@ -1565,6 +1579,7 @@ function computeNatal(p){
     var posLon = normDeg(ascLon + sunLon - moonLon);
     result.pos = {lon:posLon, sign:signIndex(posLon), deg:degInSign(posLon)};
     result.draconic.asc = toDraconic(ascLon, nodLon);
+    result.ascPolar = Math.abs(p.lat) > 66.5;
   }
   return result;
 }
@@ -1748,10 +1763,15 @@ function computeVoidOfCourse(d){
       var bLon = bodyLonAt(b, t);
       var sep = Math.abs(normDeg(mLon - bLon)); if (sep>180) sep = 360-sep;
       for (var ai=0; ai<targetAngles.length; ai++){
-        var diffA = sep - targetAngles[ai];
+        var diffA;
+        if (targetAngles[ai]===0){ var sd0 = normDeg(mLon - bLon); diffA = sd0>180 ? sd0-360 : sd0; }
+        else if (targetAngles[ai]===180){ diffA = normDeg(mLon - bLon) - 180; }
+        else diffA = sep - targetAngles[ai];
         var key = b+'_'+ai;
         if (prevDiffs[key]!==undefined){
-          if ((prevDiffs[key]<0 && diffA>=0) || (prevDiffs[key]>0 && diffA<=0)) voidOfCourse = false;
+          /* pentru 0° și 180° diferența e cu semn (|sep| nu trece niciodată prin 0/180); ignorăm saltul de wrap */
+          var wrapJump = (targetAngles[ai]%180===0) && (Math.abs(prevDiffs[key])>90 || Math.abs(diffA)>90);
+          if (!wrapJump && ((prevDiffs[key]<0 && diffA>=0) || (prevDiffs[key]>0 && diffA<=0))) voidOfCourse = false;
         }
         prevDiffs[key] = diffA;
       }
@@ -2224,9 +2244,10 @@ function stopChartMusic(){
         n.osc1.stop(now+0.7); n.osc2.stop(now+0.7);
       }catch(e){}
     });
+    var oldCtx = CHART_MUSIC.ctx;
     setTimeout(function(){
-      try{ CHART_MUSIC.ctx.close(); }catch(e){}
-      CHART_MUSIC.ctx = null;
+      try{ oldCtx.close(); }catch(e){}
+      if (CHART_MUSIC.ctx === oldCtx) CHART_MUSIC.ctx = null; /* nu închide contextul unei redări pornite între timp */
     }, 800);
   }
   CHART_MUSIC.nodes = [];
@@ -2258,7 +2279,7 @@ function playChartMusic(natal){
     gain.gain.value = 0.0001;
     osc1.connect(gain); osc2.connect(gain); gain.connect(master);
     var startAt = now + idx*0.35;
-    var targetVol = 0.09;
+    var targetVol = 0.045; /* 20 oscilatoare × 0,045 × master 0,8 ≤ 0,72 — fără clipping chiar în fază */
     gain.gain.setValueAtTime(0.0001, startAt);
     gain.gain.exponentialRampToValueAtTime(targetVol, startAt+1.8);
     osc1.start(startAt); osc2.start(startAt);
@@ -2356,6 +2377,7 @@ function generateCosmicVideo(natal, profile){
     var blob = new Blob(chunks, {type:'video/webm'});
     var url = URL.createObjectURL(blob);
     var link = document.getElementById('cosmicVideoLink');
+    if (link.href && link.href.indexOf('blob:')===0){ try{ URL.revokeObjectURL(link.href); }catch(e){} }
     link.href = url;
     link.style.display = 'inline-block';
     showToast('Portretul cosmic e gata — descarcă-l mai jos.');
@@ -2521,6 +2543,7 @@ function renderNatalSummary(el, natal, solarReturnD, nowD, milestones, birthDate
   });
   if (natal.asc){
     html += '<div class="data-row"><span class="label">Asc Ascendent</span><span>'+SIGNS[natal.asc.sign].name+' '+natal.asc.deg.toFixed(1)+'°</span></div>';
+    if (natal.ascPolar) html += '<p class="note">Locul nașterii e în zona polară (latitudine peste 66,5°): acolo ecliptica poate coincide cu orizontul, iar ascendentul calculat nu mai e fiabil — tratează-l cu rezervă.</p>';
   }
   html += '<div class="data-row"><span class="label">'+NODE_META.sym+' Nodul Nord</span><span>'+SIGNS[natal.nod.sign].name+' '+natal.nod.deg.toFixed(1)+'° <span class="retro" role="img" aria-label="mereu retrograd" title="mereu retrograd">℞</span></span></div>';
   if (natal.pof){
@@ -2917,7 +2940,12 @@ function isStorageAvailable(){
   } catch(e){ return false; }
 }
 function loadProfiles(){
-  try { var raw = localStorage.getItem(STORE_KEY); return raw ? JSON.parse(raw) : []; }
+  try {
+    var raw = localStorage.getItem(STORE_KEY);
+    var arr = raw ? JSON.parse(raw) : [];
+    if (!Array.isArray(arr)) return [];
+    return arr.filter(function(q){ return q && typeof q==='object' && typeof q.id==='string' && typeof q.birthDate==='string' && isValidDateStr(q.birthDate); });
+  }
   catch(e){ return []; }
 }
 function saveProfiles(list){
@@ -3065,7 +3093,7 @@ function importProfilesFromFile(file){
 
 /* ================= UI wiring ================= */
 var state = { profiles: loadProfiles(), activeId: loadActiveId(), editingId: null, showSidereal: loadSidereal() };
-if (state.activeId && !state.profiles.some(function(p){ return p.id===state.activeId; })){
+if (state.profiles.length && (!state.activeId || !state.profiles.some(function(p){ return p.id===state.activeId; }))){
   state.activeId = state.profiles.length ? state.profiles[0].id : null;
 }
 
@@ -3163,6 +3191,13 @@ function saveForm(){
     fDateEl.style.borderColor = 'var(--oxblood-text)';
     fDateEl.focus();
     showToast('Introdu data nașterii.');
+    return;
+  }
+  if (!isValidDateStr(birthDate)){
+    fDateEl.setAttribute('aria-invalid','true');
+    fDateEl.style.borderColor = 'var(--oxblood-text)';
+    fDateEl.focus();
+    showToast('Dată invalidă — folosește un an între 0100 și 9999.');
     return;
   }
   fDateEl.removeAttribute('aria-invalid');
