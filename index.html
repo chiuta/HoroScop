@@ -437,7 +437,8 @@ footer p{margin:4px 0;}
 
   <footer>
     <p>Totul se calculează local, în acest fișier. Fără cont, fără server, fără telemetrie.</p>
-    <p style="opacity:.6">Horoscop · fără frontiere — generat 5 iulie 2026</p>
+    <p>Conținut informativ, simbolic și de divertisment; nu înlocuiește sfatul medical, juridic sau financiar. Astrologia nu are validare științifică; pozițiile planetelor sunt calcule astronomice, interpretările sunt tradiție culturală.</p>
+    <p>Horoscop · fără frontiere — generat 5 iulie 2026</p>
   </footer>
 </div>
 
@@ -2894,6 +2895,7 @@ function renderSolarReturnWave(el, history, emptyMsg){
   el.appendChild(svgEl);
   var listWrap = document.createElement('div');
   listWrap.className = 'wave-list';
+  listWrap.setAttribute('tabindex','0'); listWrap.setAttribute('role','region'); listWrap.setAttribute('aria-label','Revoluții solare (listă derulabilă)');
   history.slice().reverse().forEach(function(h){
     var row = document.createElement('div'); row.className = 'data-row';
     var dt = new Date(Date.UTC(2000,0,1,12,0,0) + h.d*86400000);
