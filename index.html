@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0a0e1a">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-qpChykklblVjftxe5uCfiKr0xCiEGfCIja/RLh8Pb7I='; style-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none';">
+<meta name="color-scheme" content="dark light">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-+s0Jozu7zyEGLCtU2QJmF/vAf27/NO/pkwvtp1FY1+Q='; style-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none';">
 <meta name="copyright" content="Licență nedeclarată de autor; toate drepturile rezervate până la o declarație contrară. Contact: alexio@trom.tf">
 <title>Horoscop · fără frontiere</title>
 <!-- Licență: nedeclarată de autor; toate drepturile rezervate până la o declarație contrară. Contact: alexio@trom.tf
@@ -19,6 +20,28 @@
   --sans:Optima,Candara,'Noto Sans','Segoe UI',Arial,sans-serif;
   --mono:'Courier New',ui-monospace,'SF Mono',Consolas,monospace;
 }
+/* temă luminoasă: automat după preferința sistemului sau forțat din setări */
+:root[data-theme="dark"]{color-scheme:dark;}
+:root[data-theme="light"]{
+  color-scheme:light;
+  --ink-900:#f5f0e1; --ink-800:#fffcf4; --ink-700:#ece4cf;
+  --parchment:#1f1b2e; --parchment-dim:#575e72;
+  --brass:#7a5516; --brass-bright:#634410;
+  --verdigris:#266a53; --oxblood:#8f3a2c; --oxblood-text:#9c3424;
+}
+:root[data-theme="light"] .stars{opacity:0;animation:none}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --ink-900:#f5f0e1; --ink-800:#fffcf4; --ink-700:#ece4cf;
+    --parchment:#1f1b2e; --parchment-dim:#575e72;
+    --brass:#7a5516; --brass-bright:#634410;
+    --verdigris:#266a53; --oxblood:#8f3a2c; --oxblood-text:#9c3424;
+  }
+  :root:not([data-theme="dark"]) .stars{opacity:0;animation:none}
+}
+.ref-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.82rem;color:var(--parchment-dim);}
+.ref-row input[type=date]{min-width:9.5em;}
+.ref-row button{font-size:.8rem;padding:7px 10px;}
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;}
 body{
@@ -194,6 +217,16 @@ footer a{color:var(--brass-bright);}
   <main>
   <div class="settings-bar">
     <label class="toggle-label"><input type="checkbox" id="siderealToggle"> Arată și zodiacul sideral (Lahiri, aproximativ)</label>
+    <div class="ref-row">
+      <label for="refDate">Calculează cerul pentru data:</label>
+      <input type="date" id="refDate" min="1900-01-01" max="2100-12-31">
+      <button class="secondary" id="refToday" type="button">Azi</button>
+    </div>
+    <p class="hint" id="refNote" role="status">Implicit se folosește data de azi. Poți alege o altă dată (1900–2100), de exemplu pentru o zi importantă; precizia formulelor scade departe de anul 2000.</p>
+    <div class="ref-row">
+      <label for="themeSel">Temă:</label>
+      <select id="themeSel"><option value="auto">Automată (după sistem)</option><option value="dark">Întunecată</option><option value="light">Luminoasă</option></select>
+    </div>
     <div class="settings-actions">
       <button class="secondary" id="btnExport">Exportă profiluri</button>
       <button class="secondary" id="btnImport">Importă profiluri</button>
@@ -2097,7 +2130,7 @@ function interpret(natal, transits, aspects){
   var dp = out.dominant ? out.dominant.planetKey : null;
   var meta = dp ? PLANETS_META[dp] : null;
   out.luckyColor = meta ? meta.color : SIGN_COLOR_FALLBACK[sunSignIdx];
-  out.luckyHour = meta ? meta.hour : 'oricând azi';
+  out.luckyHour = meta ? meta.hour : 'oricând '+refWord();
   var now = transits.now;
   out.luckyNumber = ((now.getFullYear()+now.getMonth()+1+now.getDate()+Math.floor(natal.soare.deg)) % 9) + 1;
   var harmAspect = null;
@@ -2598,7 +2631,7 @@ function renderNatalSummary(el, natal, solarReturnD, nowD, milestones, birthDate
 function renderTransitsList(el, transits, eyebrowEl){
   var now = transits.now;
   var dateStr = now.toLocaleDateString('ro-RO', {day:'numeric', month:'long', year:'numeric'});
-  eyebrowEl.textContent = 'Cerul de azi — '+dateStr;
+  eyebrowEl.textContent = state.refDate ? 'Cerul la data de '+dateStr : 'Cerul de azi — '+dateStr;
   var order = ['soare','luna','mercur','venus','marte','jupiter','saturn','uranus','neptun','pluto'];
   var html='';
   var ayNow = state.showSidereal ? ayanamsaLahiri(transits.d) : null;
@@ -2627,7 +2660,7 @@ function renderTransitsList(el, transits, eyebrowEl){
     var hrsLeft = (transits.voc.ingressD - transits.d)*24;
     html += '<p class="note">Luna e goală de curs (fără alte aspecte majore) încă ~'+hrsLeft.toFixed(1)+' ore, până intră în '+SIGNS[transits.voc.nextSignIdx].name+'. Tradițional, nu e cel mai bun moment să începi lucruri noi.</p>';
   } else {
-    html += '<p class="note">Luna nu e goală de curs azi — mai formează cel puțin un aspect major înainte să schimbe semnul.</p>';
+    html += '<p class="note">Luna nu e goală de curs '+refWord()+' — mai formează cel puțin un aspect major înainte să schimbe semnul.</p>';
   }
   el.innerHTML = html;
 }
@@ -2850,7 +2883,7 @@ function renderWeekForecast(el, natal, fromD){
   var html = '';
   days.forEach(function(day, idx){
     var dt = new Date(Date.UTC(2000,0,1,12,0,0) + day.d*86400000);
-    var label = (idx===0 ? 'Azi' : dayNames[dt.getUTCDay()]) + ' ' + dt.getUTCDate() + '.' + String(dt.getUTCMonth()+1).padStart(2,'0');
+    var label = (idx===0 && !state.refDate ? 'Azi' : dayNames[dt.getUTCDay()]) + ' ' + dt.getUTCDate() + '.' + String(dt.getUTCMonth()+1).padStart(2,'0');
     var desc;
     if (day.best){
       var natalSym = day.best.natalKey==='asc' ? 'Asc' : PLANETS_META[day.best.natalKey].sym;
@@ -2981,6 +3014,7 @@ function saveSidereal(v){
 function buildShareText(profile, interp){
   var lines = [];
   lines.push('Horoscop · fără frontiere' + (profile && profile.name ? ' — ' + profile.name : ''));
+  if (state.refDate) lines.push('Data: ' + state.refDate);
   lines.push('');
   lines.push('Panorama: ' + interp.panorama);
   lines.push('');
@@ -3012,7 +3046,7 @@ function copyTodayReading(){
   var profile = state.profiles.find(function(p){ return p.id===state.activeId; });
   if (!profile){ showToast('Alege întâi un profil.'); return; }
   var natal = computeNatal(profile);
-  var transits = computeTransits(new Date());
+  var transits = computeTransits(nowDate());
   var aspects = computeAspects(natal, transits);
   var interp = interpret(natal, transits, aspects);
   var text = buildShareText(profile, interp);
@@ -3105,7 +3139,19 @@ function importProfilesFromFile(file){
 }
 
 /* ================= UI wiring ================= */
-var state = { profiles: loadProfiles(), activeId: loadActiveId(), editingId: null, showSidereal: loadSidereal() };
+var state = { profiles: loadProfiles(), activeId: loadActiveId(), editingId: null, showSidereal: loadSidereal(), refDate: null };
+var THEME_KEY = 'horoscopFF_theme_v1';
+function loadTheme(){ try { var v = localStorage.getItem(THEME_KEY); return (v==='dark' || v==='light') ? v : 'auto'; } catch(e){ return 'auto'; } }
+function applyTheme(v){
+  if (v==='dark' || v==='light') document.documentElement.setAttribute('data-theme', v);
+  else document.documentElement.removeAttribute('data-theme');
+}
+function nowDate(){
+  var m = state.refDate && /^(\d{4})-(\d{2})-(\d{2})$/.exec(state.refDate);
+  if (!m) return new Date();
+  return new Date(+m[1], +m[2]-1, +m[3], 12, 0, 0);
+}
+function refWord(){ return state.refDate ? 'în această zi' : 'azi'; }
 if (state.profiles.length && (!state.activeId || !state.profiles.some(function(p){ return p.id===state.activeId; }))){
   state.activeId = state.profiles.length ? state.profiles[0].id : null;
 }
@@ -3326,7 +3372,7 @@ function renderAll(){
   document.getElementById('profileForm').hidden = true;
   try {
     var natal = computeNatal(profile);
-    var now = new Date();
+    var now = nowDate();
     var transits = computeTransits(now);
     var aspects = computeAspects(natal, transits);
     var interp = interpret(natal, transits, aspects);
@@ -3380,6 +3426,25 @@ document.getElementById('siderealToggle').addEventListener('change', function(){
   state.showSidereal = this.checked;
   saveSidereal(state.showSidereal);
   renderAll();
+});
+var refInput = document.getElementById('refDate'), refNote = document.getElementById('refNote');
+var REF_DEFAULT_NOTE = refNote.textContent;
+function setRefDate(v){
+  var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v || '');
+  var ok = m && +m[1] >= 1900 && +m[1] <= 2100 && !isNaN(new Date(+m[1], +m[2]-1, +m[3]).getTime());
+  if (v && !ok){ showToast('Data trebuie să fie între 1900 și 2100.'); v = ''; refInput.value = ''; }
+  state.refDate = v || null;
+  refNote.textContent = state.refDate ? 'Cerul și citirea sunt calculate pentru ' + state.refDate + ', nu pentru azi. Apasă „Azi” pentru a reveni.' : REF_DEFAULT_NOTE;
+  renderAll();
+}
+refInput.addEventListener('change', function(){ setRefDate(this.value); });
+document.getElementById('refToday').addEventListener('click', function(){ refInput.value = ''; setRefDate(''); });
+var themeSel = document.getElementById('themeSel');
+themeSel.value = loadTheme();
+applyTheme(themeSel.value);
+themeSel.addEventListener('change', function(){
+  applyTheme(this.value);
+  try { localStorage.setItem(THEME_KEY, this.value); } catch(e){}
 });
 document.getElementById('btnExport').addEventListener('click', exportProfiles);
 document.getElementById('btnCopyReading').addEventListener('click', copyTodayReading);

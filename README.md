@@ -21,6 +21,8 @@ Horoscop este o aplicație dintr-un singur fișier HTML care calculează în bro
 - „Muzica sferelor": fiecare planetă natală devine un ton („▶ Cântă tema ta" / „■ Oprește").
 - „Portret cosmic": videoclip de aproximativ 6 secunde generat local, descărcabil ca `portret-cosmic.webm`.
 - Opțiune pentru zodiacul sideral (Lahiri, aproximativ).
+- „Calculează cerul pentru data”: alegi o altă dată (1900–2100, ora 12:00 locală) și toate secțiunile (cerul, aspectele, săptămâna, citirea, copierea) se calculează pentru acea zi; „Azi” revine. Data aleasă nu se păstrează între sesiuni.
+- Temă: automată (după preferința sistemului), întunecată sau luminoasă; alegerea se păstrează local.
 - Secțiune „Cum se calculează asta" cu precizia estimată și limitele (nu sunt calculate casele astrologice, doar ascendentul).
 
 ## Manual de utilizare
@@ -29,13 +31,13 @@ Horoscop este o aplicație dintr-un singur fișier HTML care calculează în bro
 2. Completează data nașterii; opțional numele, ora, fusul orar UTC± (România: +2 iarna, +3 vara) și latitudinea/longitudinea locului. Fără oră, ascendentul nu poate fi calculat.
 3. Apasă „Salvează profilul" (sau „Renunță").
 4. Citește secțiunile zilei; „↻ Actualizează acum" recalculează cerul.
-5. Bifează opțiunea pentru zodiac sideral dacă dorești.
+5. Bifează opțiunea pentru zodiac sideral dacă dorești; din „Calculează cerul pentru data” poți vedea cerul într-o altă zi; din „Temă” alegi aspectul.
 6. Pentru muzică apasă „▶ Cântă tema ta"; pentru video „🎬 Generează portretul", apoi descarcă fișierul.
 7. „Exportă profiluri" salvează profilurile într-un fișier; „Importă profiluri" le reîncarcă; „Șterge tot" le elimină. Tasta Escape închide formularul de profil (dacă există alte profiluri).
 
 ## Confidențialitate și rețea
 
-- Local: profilurile se păstrează în `localStorage` (`horoscopFF_profiles_v1`, profilul activ `horoscopFF_active_v1`, opțiunea sideral `horoscopFF_sidereal_v1`). Dacă stocarea nu este disponibilă (mod privat), aplicația afișează un avertisment și profilurile nu se păstrează fără export.
+- Local: profilurile se păstrează în `localStorage` (`horoscopFF_profiles_v1`, profilul activ `horoscopFF_active_v1`, opțiunea sideral `horoscopFF_sidereal_v1`, tema `horoscopFF_theme_v1`). Dacă stocarea nu este disponibilă (mod privat), aplicația afișează un avertisment și profilurile nu se păstrează fără export.
 - Rețea: în codul verificat nu există apeluri `fetch`, scripturi sau resurse externe; calculele se fac în browser.
 - Interfața este în limba română.
 
@@ -58,6 +60,7 @@ Aceeași declarație apare în antetul HTML și în subsolul aplicației. Nu exi
 ## Istoric / Changelog
 
 Ultima actualizare: 11 octombrie 2026 (aplicația nu are număr de versiune; subsolul afișează „actualizat 11 octombrie 2026”).
+- Nou: „Calculează cerul pentru data” (1900–2100) și alegerea temei (automată / întunecată / luminoasă, cu paletă luminoasă și suport pentru `prefers-color-scheme`). Textele „azi” se adaptează când e aleasă altă dată. Hash-ul CSP recalculat; captura de ecran reîmprospătată.
 - Sinastria: cât timp nu e ales niciun profil, cardul afișează acum „Alege un profil din listă pentru a vedea compatibilitatea.”, în loc să rămână gol.
 - Accesibilitate: conținutul paginii este acum într-un `<main>` (înainte exista doar când graficul era vizibil); cele două liste derulabile de revoluții solare au etichete distincte; axe-core = 0 violări, cu și fără profil, la 1280 și 360 px.
 - Politica CSP leagă acum scriptul prin hash (înainte `'unsafe-inline'`).
