@@ -1,6 +1,6 @@
 # Horoscop · fără frontiere
 
-O efemeridă personală, calculată local din poziții planetare reale: cerul de azi, comparat cu cerul din clipa nașterii tale.
+O efemeridă personală, calculată local din poziții planetare aproximative (formule kepleriene de precizie redusă): cerul de azi, comparat cu cerul din clipa nașterii tale.
 
 **Live:** https://chiuta.github.io/HoroScop/
 
@@ -61,4 +61,4 @@ Horoscop · fără frontiere is a single-file Romanian-language personal ephemer
 
 ## Audit
 
-Audit: 2026-10-10 — verificat: 0 erori JS, fără cereri de rețea (CSP `default-src 'none'; connect-src 'none'`), numele de profil nu produce XSS (testat cu markup în nume și loc). Corectat contrastul din subsol, lista derulabilă a revoluțiilor solare (acum accesibilă cu tastatura) și adăugat avertismentul de mai sus. Taglinia paginii spune „comparat exact”, deși calculul are precizie redusă (vezi „Cum se calculează asta”).
+Audit: 2026-10-10 (rundă 2, 2026-10-11: sloganul „comparat exact” / „poziții reale” reformulat pentru consecvență cu secțiunea de metodologie — precizie redusă, semnul poate diferi cu o zi la cuspide) — verificat: 0 erori JS, fără cereri de rețea (CSP `default-src 'none'; connect-src 'none'`), numele de profil nu produce XSS (testat cu markup în nume și loc). Corectat contrastul din subsol, lista derulabilă a revoluțiilor solare (acum accesibilă cu tastatura) și adăugat avertismentul de mai sus. Taglinia paginii spune „comparat exact”, deși calculul are precizie redusă (vezi „Cum se calculează asta”).
