@@ -59,7 +59,13 @@ Aceeași declarație apare în antetul HTML și în subsolul aplicației. Nu exi
 
 ## Istoric / Changelog
 
-Ultima actualizare: 11 octombrie 2026 (aplicația nu are număr de versiune; subsolul afișează „actualizat 11 octombrie 2026”).
+Ultima actualizare: 11 octombrie 2026 (runda 7; aplicația nu are număr de versiune; subsolul afișează „actualizat 11 octombrie 2026”).
+
+Runda 7:
+- **Verificare numerică documentată** (formulele nu au fost modificate): Soarele la 13.10.1992 0h TD → 199,902° față de 199,906° (Meeus, *Astronomical Algorithms*, ex. 25.a, metoda precisă, valoare reconfirmată prin pymeeus); Luna la 12.04.1992 0h TD → 133,221° față de 133,163° (ex. 47.a; diferență 0,06°); GMST la 10.04.1987 0h UT coincide cu exemplul Meeus 12.a (197,6932°); echinocțiul din 20.03.2026, 14:46 UTC → longitudine solară 0,004°. Ascendentul a fost comparat pe 60 de combinații aleatorii (ani 1900–2099, latitudini ±70°, orice longitudine) cu o metodă numerică independentă — diferență maximă sub 0,03°. Rezumatul apare în secțiunea „Cum se calculează asta”. Momentele sunt tratate ca UTC (fără ΔT ≈ 1 minut).
+- Hash-ul CSP recalculat; axe-core = 0 violări la 1280 și 360 px.
+
+Runda 6:
 - Nou: „Calculează cerul pentru data” (1900–2100) și alegerea temei (automată / întunecată / luminoasă, cu paletă luminoasă și suport pentru `prefers-color-scheme`). Textele „azi” se adaptează când e aleasă altă dată. Hash-ul CSP recalculat; captura de ecran reîmprospătată.
 - Sinastria: cât timp nu e ales niciun profil, cardul afișează acum „Alege un profil din listă pentru a vedea compatibilitatea.”, în loc să rămână gol.
 - Accesibilitate: conținutul paginii este acum într-un `<main>` (înainte exista doar când graficul era vizibil); cele două liste derulabile de revoluții solare au etichete distincte; axe-core = 0 violări, cu și fără profil, la 1280 și 360 px.
