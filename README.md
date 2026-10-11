@@ -49,7 +49,11 @@ Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet în
 
 ## Licență
 
-Licența nu este încă declarată explicit în acest repository; vezi nota din aplicație.
+Licență: nedeclarată de autor; toate drepturile rezervate până la o declarație contrară. Contact: alexio@trom.tf
+
+License: not declared by the author; all rights reserved until stated otherwise. Contact: alexio@trom.tf
+
+Aceeași declarație apare în antetul HTML și în subsolul aplicației. Nu există fișier LICENSE: alegerea unei licențe aparține autorului.
 
 ## Autor
 
@@ -57,8 +61,10 @@ Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf
 
 ## English summary
 
-Horoscop · fără frontiere is a single-file Romanian-language personal ephemeris: it computes planetary positions in the browser, compares today's sky with a natal chart, and shows daily readings, aspects, solar returns, synastry, a 3D natal orrery, planet-tone music and a downloadable WebM portrait. Profiles live in localStorage with JSON export/import. No network requests were found in the code.
+Horoscop · fără frontiere is a single-file Romanian-language personal ephemeris: it computes planetary positions in the browser, compares today's sky with a natal chart, and shows daily readings, aspects, solar returns, synastry, a 3D natal orrery, planet-tone music and a downloadable WebM portrait. Profiles live in localStorage with JSON export/import. No network requests were found in the code. License: not declared by the author; all rights reserved until stated otherwise (contact: alexio@trom.tf).
 
 ## Audit
 
-Audit: 2026-10-10 (rundă 2, 2026-10-11: sloganul „comparat exact” / „poziții reale” reformulat pentru consecvență cu secțiunea de metodologie — precizie redusă, semnul poate diferi cu o zi la cuspide) — verificat: 0 erori JS, fără cereri de rețea (CSP `default-src 'none'; connect-src 'none'`), numele de profil nu produce XSS (testat cu markup în nume și loc). Corectat contrastul din subsol, lista derulabilă a revoluțiilor solare (acum accesibilă cu tastatura) și adăugat avertismentul de mai sus. Taglinia paginii spune „comparat exact”, deși calculul are precizie redusă (vezi „Cum se calculează asta”).
+Audit: 2026-10-10 (rundă 2, 2026-10-11: sloganul „comparat exact” / „poziții reale” reformulat pentru consecvență cu secțiunea de metodologie — precizie redusă, semnul poate diferi cu o zi la cuspide) — verificat: 0 erori JS, fără cereri de rețea (CSP `default-src 'none'; connect-src 'none'`), numele de profil nu produce XSS (testat cu markup în nume și loc). Corectat contrastul din subsol, lista derulabilă a revoluțiilor solare (acum accesibilă cu tastatura) și adăugat avertismentul de mai sus.
+
+Runda 3 (2026-10-11): declarație explicită de licență nedeclarată (antet, subsol, README) și notă de avertisment astrologic vizibilă sub titlu, în RO și EN.
