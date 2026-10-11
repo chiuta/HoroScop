@@ -55,6 +55,14 @@ License: not declared by the author; all rights reserved until stated otherwise.
 
 Aceeași declarație apare în antetul HTML și în subsolul aplicației. Nu există fișier LICENSE: alegerea unei licențe aparține autorului.
 
+## Istoric / Changelog
+
+Ultima actualizare: 11 octombrie 2026 (aplicația nu are număr de versiune; subsolul afișează „actualizat 11 octombrie 2026”).
+- Sinastria: cât timp nu e ales niciun profil, cardul afișează acum „Alege un profil din listă pentru a vedea compatibilitatea.”, în loc să rămână gol.
+- Accesibilitate: conținutul paginii este acum într-un `<main>` (înainte exista doar când graficul era vizibil); cele două liste derulabile de revoluții solare au etichete distincte; axe-core = 0 violări, cu și fără profil, la 1280 și 360 px.
+- Politica CSP leagă acum scriptul prin hash (înainte `'unsafe-inline'`).
+- Calculele astronomice sunt dinamice (data curentă); formulele nu au fost modificate.
+
 ## Autor
 
 Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf

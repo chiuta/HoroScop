@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0a0e1a">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-qpChykklblVjftxe5uCfiKr0xCiEGfCIja/RLh8Pb7I='; style-src 'unsafe-inline'; connect-src 'none'; base-uri 'none'; form-action 'none';">
 <meta name="copyright" content="Licență nedeclarată de autor; toate drepturile rezervate până la o declarație contrară. Contact: alexio@trom.tf">
 <title>Horoscop · fără frontiere</title>
 <!-- Licență: nedeclarată de autor; toate drepturile rezervate până la o declarație contrară. Contact: alexio@trom.tf
@@ -191,6 +191,7 @@ footer a{color:var(--brass-bright);}
     <p class="topnote">Astrologie simbolică, fără validare științifică; nu este sfat medical, juridic sau financiar. <span lang="en">Symbolic astrology, not scientifically validated.</span></p>
   </header>
 
+  <main>
   <div class="settings-bar">
     <label class="toggle-label"><input type="checkbox" id="siderealToggle"> Arată și zodiacul sideral (Lahiri, aproximativ)</label>
     <div class="settings-actions">
@@ -259,7 +260,7 @@ footer a{color:var(--brass-bright);}
     </div>
   </section>
 
-  <main id="chartArea" hidden>
+  <div id="chartArea" hidden>
     <section class="card wheel-card">
       <svg id="wheelSvg" viewBox="0 0 300 300" role="img" aria-label="Roata cerească: pozițiile de azi comparate cu tema natală"></svg>
     </section>
@@ -439,6 +440,7 @@ footer a{color:var(--brass-bright);}
         <p>Datele tale (nume, dată, oră, loc) stau exclusiv în acest browser, în localStorage — nu sunt trimise nicăieri.</p>
       </div>
     </details>
+  </div>
   </main>
 
   <footer>
@@ -447,7 +449,7 @@ footer a{color:var(--brass-bright);}
     <p>Licență: nedeclarată de autor; toate drepturile rezervate până la o declarație contrară. Contact: <a href="mailto:alexio@trom.tf">alexio@trom.tf</a></p>
     <p lang="en">License: not declared by the author; all rights reserved until stated otherwise. Contact: <a href="mailto:alexio@trom.tf">alexio@trom.tf</a></p>
     <p lang="en">Informational, symbolic and entertainment content; not medical, legal or financial advice. Astrology has no scientific validation.</p>
-    <p>Horoscop · fără frontiere — generat 5 iulie 2026</p>
+    <p>Horoscop · fără frontiere — actualizat 11 octombrie 2026</p>
   </footer>
 </div>
 
@@ -2663,7 +2665,7 @@ function computeAndShowSynastry(){
   var sel = document.getElementById('synastrySelect');
   var resultEl = document.getElementById('synastryResult');
   resultEl.innerHTML = '';
-  if (!sel || !sel.value) return;
+  if (!sel || !sel.value) { resultEl.innerHTML = '<p class="note">Alege un profil din listă pentru a vedea compatibilitatea.</p>'; return; }
   var otherProfile = state.profiles.find(function(p){ return p.id===sel.value; });
   var activeProfile = state.profiles.find(function(p){ return p.id===state.activeId; });
   if (!otherProfile || !activeProfile) return;
@@ -2861,7 +2863,7 @@ function renderWeekForecast(el, natal, fromD){
   });
   el.innerHTML = html;
 }
-function renderSolarReturnWave(el, history, emptyMsg){
+function renderSolarReturnWave(el, history, emptyMsg, listLabel){
   el.innerHTML = '';
   if (history.length === 0){
     var p0 = document.createElement('p'); p0.className = 'note';
@@ -2904,7 +2906,7 @@ function renderSolarReturnWave(el, history, emptyMsg){
   el.appendChild(svgEl);
   var listWrap = document.createElement('div');
   listWrap.className = 'wave-list';
-  listWrap.setAttribute('tabindex','0'); listWrap.setAttribute('role','region'); listWrap.setAttribute('aria-label','Revoluții solare (listă derulabilă)');
+  listWrap.setAttribute('tabindex','0'); listWrap.setAttribute('role','region'); listWrap.setAttribute('aria-label', listLabel || 'Revoluții solare (listă derulabilă)');
   history.slice().reverse().forEach(function(h){
     var row = document.createElement('div'); row.className = 'data-row';
     var dt = new Date(Date.UTC(2000,0,1,12,0,0) + h.d*86400000);
@@ -3343,7 +3345,7 @@ function renderAll(){
     renderNatalSummary(document.getElementById('natalSummary'), natal, solarReturnD, transits.d, milestones, profile.birthDate);
     renderUrsitoare(document.getElementById('ursitoareCard'), ursitoare);
     renderSolarReturnWave(document.getElementById('solarWaveCard'), solarHistory);
-    renderSolarReturnWave(document.getElementById('solarWaveFutureCard'), solarFuture, 'Nu există încă o vârstă suficientă pentru o proiecție în viitor.');
+    renderSolarReturnWave(document.getElementById('solarWaveFutureCard'), solarFuture, 'Nu există încă o vârstă suficientă pentru o proiecție în viitor.', 'Revoluții solare viitoare (listă derulabilă)');
     renderTransitsList(document.getElementById('transitsList'), transits, document.getElementById('transitsEyebrow'));
     renderNatalAspects(document.getElementById('natalAspectsList'), natal);
     renderChartStructure(document.getElementById('chartStructure'), natal);
