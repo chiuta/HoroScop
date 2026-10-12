@@ -1,5 +1,7 @@
 # Horoscop · fără frontiere
 
+**Versiune:** 1.0.0 · **Ultima actualizare:** 12 octombrie 2026
+
 O efemeridă personală, calculată local din poziții planetare aproximative (formule kepleriene de precizie redusă): cerul de azi, comparat cu cerul din clipa nașterii tale.
 
 **Live:** https://chiuta.github.io/HoroScop/
@@ -59,7 +61,7 @@ Aceeași declarație apare în antetul HTML și în subsolul aplicației. Nu exi
 
 ## Istoric / Changelog
 
-Ultima actualizare: 11 octombrie 2026 (runda 7; aplicația nu are număr de versiune; subsolul afișează „actualizat 11 octombrie 2026”).
+- 1.0.0 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație (prima versiune numerotată; în subsol, în locul vechii mențiuni „actualizat 11 octombrie 2026”).
 
 Runda 7:
 - **Verificare numerică documentată** (formulele nu au fost modificate): Soarele la 13.10.1992 0h TD → 199,902° față de 199,906° (Meeus, *Astronomical Algorithms*, ex. 25.a, metoda precisă, valoare reconfirmată prin pymeeus); Luna la 12.04.1992 0h TD → 133,221° față de 133,163° (ex. 47.a; diferență 0,06°); GMST la 10.04.1987 0h UT coincide cu exemplul Meeus 12.a (197,6932°); echinocțiul din 20.03.2026, 14:46 UTC → longitudine solară 0,004°. Ascendentul a fost comparat pe 60 de combinații aleatorii (ani 1900–2099, latitudini ±70°, orice longitudine) cu o metodă numerică independentă — diferență maximă sub 0,03°. Rezumatul apare în secțiunea „Cum se calculează asta”. Momentele sunt tratate ca UTC (fără ΔT ≈ 1 minut).
