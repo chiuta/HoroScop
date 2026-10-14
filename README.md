@@ -1,6 +1,6 @@
 # Horoscop · fără frontiere
 
-**Versiune:** 1.0.0 · **Ultima actualizare:** 12 octombrie 2026
+**Versiune:** 1.1.0 · **Ultima actualizare:** 14 octombrie 2026
 
 O efemeridă personală, calculată local din poziții planetare aproximative (formule kepleriene de precizie redusă): cerul de azi, comparat cu cerul din clipa nașterii tale.
 
@@ -27,6 +27,19 @@ Horoscop este o aplicație dintr-un singur fișier HTML care calculează în bro
 - Temă: automată (după preferința sistemului), întunecată sau luminoasă; alegerea se păstrează local.
 - Secțiune „Cum se calculează asta" cu precizia estimată și limitele (nu sunt calculate casele astrologice, doar ascendentul).
 
+## Funcții noi (1.1.0)
+
+Cardul pliabil **„Efemeride locale (FFF.ephem)”**, la finalul paginii, calculează local (fără rețea), pentru un loc și pentru data aleasă în aplicație („Calculează cerul pentru data”; implicit azi):
+
+- **Soare:** răsărit, trecere la meridian (cu altitudinea maximă), apus, durata zilei și crepusculele civil, nautic, astronomic.
+- **Lună:** faza, iluminarea, vârsta, distanța, răsărit/apus și următoarele patru faze (lună nouă, primul pătrar, lună plină, ultimul pătrar).
+- **Poziții** pentru Soare, Lună și cele opt planete (+ Pluto): longitudine ecliptică cu semn, altitudine/azimut (cu refracție), răsărit/apus, magnitudine, elongație.
+- **Coloana „Δ”**: diferența, în minute de arc, dintre longitudinea din modelul simplu al aplicației (elemente kepleriene, cel care alimentează citirile) și cea din `FFF.ephem`. La 4 date de probă diferențele au fost: Soare ≤ 0,5′, planete ≤ 8′ (cele mai mari: Pluto, Uranus), Lună până la ≈ 20′. Cifrele arată cât de mult poate greși modelul simplu; citirile și aspectele **nu** au fost modificate.
+- Locul: lat/lon, nume din lista de orașe a aplicației, profilul activ (locul nașterii) sau **GPS cu consimțământ în două trepte** (confirmare în pagină, apoi o singură cerere; nu se salvează). Fusul orar se completează cu cel al browserului și se poate edita (nume IANA).
+- Precizia declarată apare în card (secțiunea „Precizie”) și mai jos.
+
+Cardul este numai în limba română, ca restul aplicației (aplicația nu are sistem i18n), și se ascunde la imprimare.
+
 ## Manual de utilizare
 
 1. Apasă „Adaugă primul profil" (sau „Adaugă").
@@ -41,11 +54,21 @@ Horoscop este o aplicație dintr-un singur fișier HTML care calculează în bro
 
 - Local: profilurile se păstrează în `localStorage` (`horoscopFF_profiles_v1`, profilul activ `horoscopFF_active_v1`, opțiunea sideral `horoscopFF_sidereal_v1`, tema `horoscopFF_theme_v1`). Dacă stocarea nu este disponibilă (mod privat), aplicația afișează un avertisment și profilurile nu se păstrează fără export.
 - Rețea: în codul verificat nu există apeluri `fetch`, scripturi sau resurse externe; calculele se fac în browser.
-- Interfața este în limba română.
+- Interfața este în limba română (fără sistem i18n; kitul oferă hu/de doar în propriile dialoguri). Traducerile automate ale kitului fr/it/es/pt/hu/de nu sunt verificate nativ.
 
+- 1.1.0: **geolocația** (`navigator.geolocation`) se folosește doar dacă apeși „Folosește locația mea (GPS)” din cardul de efemeride și confirmi în pagină. Nu există cereri de rețea noi și nu se salvează nimic nou în `localStorage` (cardul nu are stare persistentă). Kitul `fff-kit` (`core`, `label`, `bundle`, `ephem`) adaugă butonul de transparență și indexul `fff.horoscop.__keys` al cheilor deja existente.
 ## Avertisment
 
 Conținut informativ, simbolic și de divertisment; nu înlocuiește sfatul medical, juridic sau financiar. Astrologia nu are validare științifică: pozițiile planetelor sunt calcule astronomice (cu precizie redusă, formule de tip Schlyter / Meeus), dar interpretările („citirile”) sunt tradiție culturală, nu predicții validate. Aceeași notă apare în subsolul aplicației.
+
+## Limite (funcțiile noi)
+
+- **Efemeride locale — precizie.** Împotriva modelului fizic de referință (JPL DE421/DE423) pozițiile aparente ale Soarelui și planetelor diferă cu ≤ 3″ (Neptun ≤ 5″, Pluto ≤ 7″), ale Lunii cu ≤ 1,5″; răsăritul/apusul Soarelui ≤ 6 s, ale Lunii ≤ 25 s; fazele ≤ 30 s. Față de pyephem 4.2.1 (test în `tests/`): răsărit/apus ≤ 0,5 s, faze ≤ 6 s, alt/az ≤ 0,003°. Orele sunt afișate rotunjit la minut. **În realitate** răsăritul/apusul diferă cu minute din cauza refracției reale, a reliefului și a altitudinii (nemodelate), iar ΔT e incert cu ≈ ±1 s în 2027. Magnitudinile sunt orientative. Nu e potrivit pentru navigație sau observații astrometrice.
+- Restul aplicației (citiri, aspecte, teme natale) folosește în continuare modelul simplu cu precizie redusă; efemeridele noi nu îl înlocuiesc. Nu sunt calculate casele astrologice cu `FFF.ephem`.
+
+## Teste
+
+`node tests/fff-r8.test.mjs` (Playwright din `/opt/node-tools`, Chromium local, rețeaua blocată; `tests/_lib.mjs` are ajutoarele comune). Valorile de referință sunt în `tests/ref-c3a.json`: momentele de răsărit/apus/trecere (Soare, Lună; 5 locuri × 4 date), 56 de momente de fază și 54 de poziții alt/az, calculate independent cu **pyephem 4.2.1** (folosit doar offline pentru a genera numerele; nu face parte din aplicație). Fiecare test are pragul scris în cod; testul de accesibilitate (axe-core, `bypassCSP`) rulează și în dialoguri/panouri deschise, la 1280×800 și 360×740.
 
 ## Rulare locală / offline
 
@@ -60,6 +83,9 @@ License: not declared by the author; all rights reserved until stated otherwise.
 Aceeași declarație apare în antetul HTML și în subsolul aplicației. Nu există fișier LICENSE: alegerea unei licențe aparține autorului.
 
 ## Istoric / Changelog
+
+### 1.1.0 — 2026-10-14
+- Nou: cardul „Efemeride locale (FFF.ephem)” (răsărit/apus/trecere, crepuscule, faze ale Lunii, poziții alt/az, coloana Δ față de modelul simplu, GPS cu consimțământ în două trepte, precizie declarată); kitul `fff-kit` (`core`, `label`, `bundle`, `ephem`); `tests/fff-r8.test.mjs` (47 de verificări, inclusiv axe în tema luminoasă și cea întunecată, la 1280×800 și 360×740). Comparație înainte/după la 1280×800: pagina inițială identică pixel cu pixel (cardul e închis implicit), deci captura de ecran nu s-a schimbat.
 
 - 1.0.0 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație (prima versiune numerotată; în subsol, în locul vechii mențiuni „actualizat 11 octombrie 2026”).
 
