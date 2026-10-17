@@ -78,9 +78,9 @@ Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet în
 
 MIT — vezi fișierul `LICENSE`. © 2026 Alexandru-Ionuț Chiuță (Alexio). Eventualele biblioteci terțe incluse în fișier își păstrează licențele proprii.
 
-License: not declared by the author; all rights reserved until stated otherwise. Contact: alexio@trom.tf
+License: MIT (see the LICENSE file). Contact: alexio@trom.tf
 
-Aceeași declarație apare în antetul HTML și în subsolul aplicației. Nu există fișier LICENSE: alegerea unei licențe aparține autorului.
+Aceeași declarație apare în antetul HTML și în subsolul aplicației. Textul licenței se află în fișierul LICENSE.
 
 ## Istoric / Changelog
 
@@ -106,7 +106,7 @@ Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf
 
 ## English summary
 
-Horoscop · fără frontiere is a single-file Romanian-language personal ephemeris: it computes planetary positions in the browser, compares today's sky with a natal chart, and shows daily readings, aspects, solar returns, synastry, a 3D natal orrery, planet-tone music and a downloadable WebM portrait. Profiles live in localStorage with JSON export/import. No network requests were found in the code. License: not declared by the author; all rights reserved until stated otherwise (contact: alexio@trom.tf).
+Horoscop · fără frontiere is a single-file Romanian-language personal ephemeris: it computes planetary positions in the browser, compares today's sky with a natal chart, and shows daily readings, aspects, solar returns, synastry, a 3D natal orrery, planet-tone music and a downloadable WebM portrait. Profiles live in localStorage with JSON export/import. No network requests were found in the code. License: MIT (see the LICENSE file) (contact: alexio@trom.tf).
 
 ## Audit
 
