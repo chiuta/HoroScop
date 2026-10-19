@@ -10,7 +10,7 @@ Személyes efemerisz, helyben számolva közelítő bolygópozíciókból (csök
 
 **Élő verzió:** https://chiuta.github.io/HoroScop/
 
-![Képernyőkép](screenshot.png)
+![Képernyőkép](screenshot.hu.png)
 
 ## Mi ez
 

@@ -10,7 +10,7 @@ Une éphéméride personnelle, calculée localement à partir de positions plan�
 
 **En ligne :** https://chiuta.github.io/HoroScop/
 
-![Capture d'écran](screenshot.png)
+![Capture d'écran](screenshot.fr.png)
 
 ## De quoi s'agit-il
 

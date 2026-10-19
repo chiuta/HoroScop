@@ -10,7 +10,7 @@ Una efeméride personal, calculada localmente a partir de posiciones planetarias
 
 **En línea:** https://chiuta.github.io/HoroScop/
 
-![Captura de pantalla](screenshot.png)
+![Captura de pantalla](screenshot.es.png)
 
 ## Qué es
 

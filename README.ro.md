@@ -10,7 +10,7 @@ O efemeridă personală, calculată local din poziții planetare aproximative (f
 
 **Live:** https://chiuta.github.io/HoroScop/
 
-![Captura de ecran](screenshot.png)
+![Captura de ecran](screenshot.ro.png)
 
 ## Ce este
 

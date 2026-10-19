@@ -10,7 +10,7 @@ A personal ephemeris, computed locally from approximate planetary positions (low
 
 **Live:** https://chiuta.github.io/HoroScop/
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.en.png)
 
 ## What it is
 

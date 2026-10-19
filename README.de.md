@@ -10,7 +10,7 @@ Eine persönliche Ephemeride, lokal berechnet aus genäherten Planetenpositionen
 
 **Live:** https://chiuta.github.io/HoroScop/
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.de.png)
 
 ## Was es ist
 

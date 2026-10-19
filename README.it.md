@@ -10,7 +10,7 @@ Un'effemeride personale, calcolata in locale da posizioni planetarie approssimat
 
 **Online:** https://chiuta.github.io/HoroScop/
 
-![Schermata](screenshot.png)
+![Schermata](screenshot.it.png)
 
 ## Che cos'è
 
