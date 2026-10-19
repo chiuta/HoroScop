@@ -18,8 +18,8 @@
     "horoscopFF_sidereal_v1",
     "horoscopFF_theme_v1"
   ],
-  "sizeBytes": 566200,
-  "sha256": "c6a7378487c83a9f8804578324134195cba8b6dafdf1dda3df8a0100861197af",
+  "sizeBytes": 566836,
+  "sha256": "a342b445b61066a5d6ad5ab0419e94179310f11b2c24a96543cffcefa5731271",
   "csp": {
     "present": true,
     "directives": {
@@ -57,7 +57,7 @@
     ]
   },
   "kit": {
-    "version": "1.1.0",
+    "version": "1.1.1",
     "modules": [
       "core",
       "label",
