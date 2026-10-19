@@ -1,6 +1,6 @@
 # Horoscop · fără frontiere
 
-**Versiune:** 1.1.0 · **Ultima actualizare:** 14 octombrie 2026
+**Versiune:** 1.2.0 · **Ultima actualizare:** 19 octombrie 2026
 
 O efemeridă personală, calculată local din poziții planetare aproximative (formule kepleriene de precizie redusă): cerul de azi, comparat cu cerul din clipa nașterii tale.
 
@@ -83,6 +83,9 @@ License: MIT (see the LICENSE file). Contact: alexio@trom.tf
 Aceeași declarație apare în antetul HTML și în subsolul aplicației. Textul licenței se află în fișierul LICENSE.
 
 ## Istoric / Changelog
+
+### 19 octombrie 2026 (v1.2.0)
+- Nou: „↗ Cerul nașterii tale, în TerRa” (doar cu oră și loc); avertisment de istoric; loc rotunjit la ~1 km; numele nu se trimite.
 
 ### 1.1.0 — 2026-10-14
 - Nou: cardul „Efemeride locale (FFF.ephem)” (răsărit/apus/trecere, crepuscule, faze ale Lunii, poziții alt/az, coloana Δ față de modelul simplu, GPS cu consimțământ în două trepte, precizie declarată); kitul `fff-kit` (`core`, `label`, `bundle`, `ephem`); `tests/fff-r8.test.mjs` (47 de verificări, inclusiv axe în tema luminoasă și cea întunecată, la 1280×800 și 360×740). Comparație înainte/după la 1280×800: pagina inițială identică pixel cu pixel (cardul e închis implicit), deci captura de ecran nu s-a schimbat.
