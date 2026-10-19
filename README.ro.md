@@ -111,9 +111,9 @@ Runda 6:
 
 Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf
 
-## English summary
+## Rezumat
 
-Horoscop · fără frontiere is a single-file Romanian-language personal ephemeris: it computes planetary positions in the browser, compares today's sky with a natal chart, and shows daily readings, aspects, solar returns, synastry, a 3D natal orrery, planet-tone music and a downloadable WebM portrait. Profiles live in localStorage with JSON export/import. No network requests were found in the code. License: MIT (see the LICENSE file) (contact: alexio@trom.tf).
+Horoscop · fără frontiere este o efemeridă personală într-un singur fișier, în limba română: calculează pozițiile planetare în browser, compară cerul de azi cu o hartă natală și afișează interpretări zilnice, aspecte, reveniri solare, sinastrie, un orrery natal 3D, muzică pe tonurile planetelor și un portret WebM descărcabil. Profilurile se păstrează în localStorage, cu export/import JSON. Nu s-au găsit cereri de rețea în cod. Licență: MIT (vezi fișierul LICENSE) (contact: alexio@trom.tf).
 
 ## Audit
 
