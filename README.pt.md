@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 1.2.0 · **Última atualização:** 2026-10-19
+**Versão:** 1.3.0 · **Última atualização:** 2026-10-19
+
+Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 Uma efeméride pessoal, calculada localmente a partir de posições planetárias aproximadas (fórmulas keplerianas de precisão reduzida): o céu de hoje, comparado com o céu do momento do seu nascimento.
 
@@ -40,7 +42,7 @@ O cartão recolhível **«Efemérides locais (FFF.ephem)»**, no fim da página,
 - O local: lat/lon, nome da lista de cidades da aplicação, perfil ativo (local de nascimento) ou **GPS com consentimento em dois passos** (confirmação na página, depois um único pedido; não é guardado). O fuso horário é preenchido com o do navegador e pode ser editado (nome IANA).
 - A precisão declarada aparece no cartão (secção «Precisão») e mais abaixo.
 
-O cartão está apenas em romeno, como o resto da aplicação (a aplicação não tem sistema i18n), e fica oculto na impressão.
+O cartão está apenas em romeno (os textos de interpretação não estão traduzidos; o resto da aplicação está disponível em 8 idiomas), e fica oculto na impressão.
 
 ## Manual de utilização
 
@@ -56,7 +58,7 @@ O cartão está apenas em romeno, como o resto da aplicação (a aplicação nã
 
 - Local: os perfis são guardados em `localStorage` (`horoscopFF_profiles_v1`, o perfil ativo `horoscopFF_active_v1`, a opção sideral `horoscopFF_sidereal_v1`, o tema `horoscopFF_theme_v1`). Se o armazenamento não estiver disponível (modo privado), a aplicação mostra um aviso e os perfis não são guardados sem exportação.
 - Rede: no código verificado não existem chamadas `fetch`, scripts nem recursos externos; os cálculos são feitos no navegador.
-- A interface está em romeno (sem sistema i18n; o kit oferece hu/de apenas nos seus próprios diálogos). As traduções automáticas fr/it/es/pt/hu/de do kit não são verificadas por falantes nativos.
+- A interface tem 8 idiomas (RO, EN, FR, IT, ES, PT, DE, HU); os textos longos de interpretação permanecem em romeno. As traduções automáticas fr/it/es/pt/hu/de (interface e kit) não são verificadas por falantes nativos.
 
 - 1.1.0: a **geolocalização** (`navigator.geolocation`) só é usada se premir «Usar a minha localização (GPS)» no cartão das efemérides e confirmar na página. Não há novos pedidos de rede e não é guardado nada de novo em `localStorage` (o cartão não tem estado persistente). O kit `fff-kit` (`core`, `label`, `bundle`, `ephem`) acrescenta o botão de transparência e o índice `fff.horoscop.__keys` das chaves já existentes.
 ## Aviso

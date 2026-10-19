@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.2.0 · **Utolsó frissítés:** 2026-10-19
+**Verzió:** 1.3.0 · **Utolsó frissítés:** 2026-10-19
+
+A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 Személyes efemerisz, helyben számolva közelítő bolygópozíciókból (csökkentett pontosságú kepleri képletek): a mai égbolt, összevetve a születésed pillanatának égboltjával.
 
@@ -40,7 +42,7 @@ Az oldal alján lévő összecsukható **„Helyi efemeriszek (FFF.ephem)”** k
 - A hely: szél./hossz., név az alkalmazás városlistájából, az aktív profil (születési hely) vagy **GPS kétlépcsős hozzájárulással** (megerősítés az oldalon, majd egyetlen kérés; nem mentődik). Az időzóna a böngészőé alapján töltődik ki, és szerkeszthető (IANA-név).
 - A deklarált pontosság megjelenik a kártyán („Pontosság” szakasz) és lejjebb.
 
-A kártya csak románul van, mint az alkalmazás többi része (az alkalmazásnak nincs i18n rendszere), és nyomtatáskor el van rejtve.
+A kártya csak románul van (az értelmezési szövegek nincsenek lefordítva; az alkalmazás többi része 8 nyelven érhető el), és nyomtatáskor el van rejtve.
 
 ## Használati útmutató
 
@@ -56,7 +58,7 @@ A kártya csak románul van, mint az alkalmazás többi része (az alkalmazásna
 
 - Helyi: a profilok a `localStorage`-ban vannak (`horoscopFF_profiles_v1`, az aktív profil `horoscopFF_active_v1`, a sziderikus beállítás `horoscopFF_sidereal_v1`, a téma `horoscopFF_theme_v1`). Ha a tárolás nem elérhető (privát mód), az alkalmazás figyelmeztetést jelenít meg, és a profilok export nélkül nem maradnak meg.
 - Hálózat: az ellenőrzött kódban nincsenek `fetch` hívások, szkriptek vagy külső erőforrások; a számítások a böngészőben történnek.
-- A felület román nyelvű (i18n rendszer nélkül; a kit a hu/de nyelvet csak a saját párbeszédablakaiban kínálja). A kit gépi fr/it/es/pt/hu/de fordításait anyanyelvi beszélők nem ellenőrizték.
+- A felület 8 nyelvű (RO, EN, FR, IT, ES, PT, DE, HU); a hosszú értelmezési szövegek románul maradnak. A gépi fr/it/es/pt/hu/de fordításokat (felület és kit) anyanyelvi beszélők nem ellenőrizték.
 
 - 1.1.0: a **helymeghatározást** (`navigator.geolocation`) csak akkor használja, ha az efemeriszkártyán megnyomod a „Saját helyem használata (GPS)” gombot, és az oldalon megerősíted. Nincsenek új hálózati kérések, és semmi új nem mentődik a `localStorage`-ba (a kártyának nincs tartós állapota). Az `fff-kit` kit (`core`, `label`, `bundle`, `ephem`) hozzáadja az átláthatósági gombot és a már meglévő kulcsok `fff.horoscop.__keys` indexét.
 ## Figyelmeztetés

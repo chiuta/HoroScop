@@ -2,7 +2,9 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.2.0 · **Last updated:** 2026-10-19
+**Version:** 1.3.0 · **Last updated:** 2026-10-19
+
+Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 A personal ephemeris, computed locally from approximate planetary positions (low-precision Keplerian formulas): today's sky, compared with the sky at the moment of your birth.
 
@@ -40,7 +42,7 @@ The collapsible card **"Local ephemerides (FFF.ephem)"**, at the bottom of the p
 - The place: lat/lon, a name from the app's list of cities, the active profile (birthplace) or **GPS with two-step consent** (in-page confirmation, then a single request; it is not saved). The time zone is filled in with the browser's and can be edited (IANA name).
 - The declared accuracy appears in the card (the "Accuracy" section) and below.
 
-The card is in Romanian only, like the rest of the app (the app has no i18n system), and is hidden when printing.
+The card is in Romanian only (the interpretation texts are not translated; the rest of the app is available in 8 languages), and is hidden when printing.
 
 ## User guide
 
@@ -56,7 +58,7 @@ The card is in Romanian only, like the rest of the app (the app has no i18n syst
 
 - Local: profiles are kept in `localStorage` (`horoscopFF_profiles_v1`, the active profile `horoscopFF_active_v1`, the sidereal option `horoscopFF_sidereal_v1`, the theme `horoscopFF_theme_v1`). If storage is unavailable (private mode), the app shows a warning and the profiles are not kept without an export.
 - Network: in the verified code there are no `fetch` calls, scripts or external resources; the calculations are done in the browser.
-- The interface is in Romanian (no i18n system; the kit offers hu/de only in its own dialogs). The kit's machine translations fr/it/es/pt/hu/de are not checked by native speakers.
+- The interface has 8 languages (RO, EN, FR, IT, ES, PT, DE, HU); the long interpretation texts remain in Romanian. The machine translations fr/it/es/pt/hu/de (interface and kit) are not checked by native speakers.
 
 - 1.1.0: **geolocation** (`navigator.geolocation`) is used only if you press "Use my location (GPS)" in the ephemerides card and confirm in the page. There are no new network requests and nothing new is saved in `localStorage` (the card has no persistent state). The `fff-kit` kit (`core`, `label`, `bundle`, `ephem`) adds the transparency button and the index `fff.horoscop.__keys` of the already existing keys.
 ## Warning

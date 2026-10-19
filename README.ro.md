@@ -2,7 +2,9 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.2.0 · **Ultima actualizare:** 2026-10-19
+**Versiune:** 1.3.0 · **Ultima actualizare:** 2026-10-19
+
+Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 O efemeridă personală, calculată local din poziții planetare aproximative (formule kepleriene de precizie redusă): cerul de azi, comparat cu cerul din clipa nașterii tale.
 
@@ -40,7 +42,7 @@ Cardul pliabil **„Efemeride locale (FFF.ephem)”**, la finalul paginii, calcu
 - Locul: lat/lon, nume din lista de orașe a aplicației, profilul activ (locul nașterii) sau **GPS cu consimțământ în două trepte** (confirmare în pagină, apoi o singură cerere; nu se salvează). Fusul orar se completează cu cel al browserului și se poate edita (nume IANA).
 - Precizia declarată apare în card (secțiunea „Precizie”) și mai jos.
 
-Cardul este numai în limba română, ca restul aplicației (aplicația nu are sistem i18n), și se ascunde la imprimare.
+Cardul este numai în limba română (textele de interpretare nu sunt traduse; restul aplicației este disponibil în 8 limbi), și se ascunde la imprimare.
 
 ## Manual de utilizare
 
@@ -56,7 +58,7 @@ Cardul este numai în limba română, ca restul aplicației (aplicația nu are s
 
 - Local: profilurile se păstrează în `localStorage` (`horoscopFF_profiles_v1`, profilul activ `horoscopFF_active_v1`, opțiunea sideral `horoscopFF_sidereal_v1`, tema `horoscopFF_theme_v1`). Dacă stocarea nu este disponibilă (mod privat), aplicația afișează un avertisment și profilurile nu se păstrează fără export.
 - Rețea: în codul verificat nu există apeluri `fetch`, scripturi sau resurse externe; calculele se fac în browser.
-- Interfața este în limba română (fără sistem i18n; kitul oferă hu/de doar în propriile dialoguri). Traducerile automate ale kitului fr/it/es/pt/hu/de nu sunt verificate nativ.
+- Interfața are 8 limbi (RO, EN, FR, IT, ES, PT, DE, HU); textele lungi de interpretare rămân în română. Traducerile automate fr/it/es/pt/hu/de (interfață și kit) nu sunt verificate nativ.
 
 - 1.1.0: **geolocația** (`navigator.geolocation`) se folosește doar dacă apeși „Folosește locația mea (GPS)” din cardul de efemeride și confirmi în pagină. Nu există cereri de rețea noi și nu se salvează nimic nou în `localStorage` (cardul nu are stare persistentă). Kitul `fff-kit` (`core`, `label`, `bundle`, `ephem`) adaugă butonul de transparență și indexul `fff.horoscop.__keys` al cheilor deja existente.
 ## Avertisment

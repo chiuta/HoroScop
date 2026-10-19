@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.2.0 · **Zuletzt aktualisiert:** 2026-10-19
+**Version:** 1.3.0 · **Zuletzt aktualisiert:** 2026-10-19
+
+Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 Eine persönliche Ephemeride, lokal berechnet aus genäherten Planetenpositionen (keplersche Formeln mit verminderter Genauigkeit): der heutige Himmel, verglichen mit dem Himmel im Augenblick deiner Geburt.
 
@@ -40,7 +42,7 @@ Die einklappbare Karte **„Lokale Ephemeriden (FFF.ephem)“** am Ende der Seit
 - Der Ort: Breite/Länge, Name aus der Städteliste der App, aktives Profil (Geburtsort) oder **GPS mit zweistufiger Einwilligung** (Bestätigung auf der Seite, dann eine einzige Anfrage; es wird nicht gespeichert). Die Zeitzone wird mit der des Browsers vorbelegt und ist editierbar (IANA-Name).
 - Die angegebene Genauigkeit erscheint in der Karte (Abschnitt „Genauigkeit“) und weiter unten.
 
-Die Karte ist nur auf Rumänisch, wie der Rest der App (die App hat kein i18n-System), und wird beim Drucken ausgeblendet.
+Die Karte ist nur auf Rumänisch (die Deutungstexte sind nicht übersetzt; der Rest der App ist in 8 Sprachen verfügbar), und wird beim Drucken ausgeblendet.
 
 ## Anleitung
 
@@ -56,7 +58,7 @@ Die Karte ist nur auf Rumänisch, wie der Rest der App (die App hat kein i18n-Sy
 
 - Lokal: Die Profile werden in `localStorage` gespeichert (`horoscopFF_profiles_v1`, das aktive Profil `horoscopFF_active_v1`, die Siderisch-Option `horoscopFF_sidereal_v1`, das Design `horoscopFF_theme_v1`). Ist der Speicher nicht verfügbar (privater Modus), zeigt die App eine Warnung, und die Profile bleiben ohne Export nicht erhalten.
 - Netzwerk: Im geprüften Code gibt es keine `fetch`-Aufrufe, Skripte oder externen Ressourcen; die Berechnungen erfolgen im Browser.
-- Die Oberfläche ist auf Rumänisch (ohne i18n-System; das Kit bietet hu/de nur in seinen eigenen Dialogen an). Die maschinellen Übersetzungen fr/it/es/pt/hu/de des Kits sind nicht von Muttersprachlern geprüft.
+- Die Oberfläche hat 8 Sprachen (RO, EN, FR, IT, ES, PT, DE, HU); die langen Deutungstexte bleiben auf Rumänisch. Die maschinellen Übersetzungen fr/it/es/pt/hu/de (Oberfläche und Kit) sind nicht von Muttersprachlern geprüft.
 
 - 1.1.0: Die **Geolokalisierung** (`navigator.geolocation`) wird nur verwendet, wenn du in der Ephemeridenkarte „Meinen Standort verwenden (GPS)“ drückst und auf der Seite bestätigst. Es gibt keine neuen Netzwerkanfragen, und es wird nichts Neues in `localStorage` gespeichert (die Karte hat keinen persistenten Zustand). Das Kit `fff-kit` (`core`, `label`, `bundle`, `ephem`) fügt die Transparenzschaltfläche und den Index `fff.horoscop.__keys` der bereits vorhandenen Schlüssel hinzu.
 ## Warnhinweis

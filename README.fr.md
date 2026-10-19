@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 1.2.0 · **Dernière mise à jour :** 2026-10-19
+**Version :** 1.3.0 · **Dernière mise à jour :** 2026-10-19
+
+Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 Une éphéméride personnelle, calculée localement à partir de positions planétaires approchées (formules képlériennes de précision réduite) : le ciel d'aujourd'hui, comparé au ciel du moment de votre naissance.
 
@@ -40,7 +42,7 @@ La carte repliable **« Éphémérides locales (FFF.ephem) »**, en bas de la pa
 - Le lieu : lat/lon, nom tiré de la liste de villes de l'application, profil actif (lieu de naissance) ou **GPS avec consentement en deux temps** (confirmation dans la page, puis une seule demande ; rien n'est enregistré). Le fuseau horaire est rempli avec celui du navigateur et peut être modifié (nom IANA).
 - La précision déclarée apparaît dans la carte (section « Précision ») et plus bas.
 
-La carte est uniquement en roumain, comme le reste de l'application (l'application n'a pas de système i18n), et est masquée à l'impression.
+La carte est uniquement en roumain (les textes d'interprétation ne sont pas traduits ; le reste de l'application est disponible en 8 langues), et est masquée à l'impression.
 
 ## Mode d'emploi
 
@@ -56,7 +58,7 @@ La carte est uniquement en roumain, comme le reste de l'application (l'applicati
 
 - Local : les profils sont conservés dans `localStorage` (`horoscopFF_profiles_v1`, le profil actif `horoscopFF_active_v1`, l'option sidérale `horoscopFF_sidereal_v1`, le thème `horoscopFF_theme_v1`). Si le stockage n'est pas disponible (mode privé), l'application affiche un avertissement et les profils ne sont pas conservés sans export.
 - Réseau : dans le code vérifié, il n'y a ni appels `fetch`, ni scripts, ni ressources externes ; les calculs se font dans le navigateur.
-- L'interface est en roumain (sans système i18n ; le kit propose hu/de uniquement dans ses propres boîtes de dialogue). Les traductions automatiques fr/it/es/pt/hu/de du kit ne sont pas vérifiées par des locuteurs natifs.
+- L'interface compte 8 langues (RO, EN, FR, IT, ES, PT, DE, HU) ; les longs textes d'interprétation restent en roumain. Les traductions automatiques fr/it/es/pt/hu/de (interface et kit) ne sont pas vérifiées par des locuteurs natifs.
 
 - 1.1.0 : la **géolocalisation** (`navigator.geolocation`) n'est utilisée que si vous appuyez sur « Utiliser ma position (GPS) » dans la carte des éphémérides et que vous confirmez dans la page. Il n'y a aucune nouvelle requête réseau et rien de nouveau n'est enregistré dans `localStorage` (la carte n'a pas d'état persistant). Le kit `fff-kit` (`core`, `label`, `bundle`, `ephem`) ajoute le bouton de transparence et l'index `fff.horoscop.__keys` des clés déjà existantes.
 ## Avertissement
