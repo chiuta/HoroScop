@@ -1,118 +1,120 @@
 # Horoscop · fără frontiere
 
-**Versiune:** 1.2.0 · **Ultima actualizare:** 19 octombrie 2026
+**English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-O efemeridă personală, calculată local din poziții planetare aproximative (formule kepleriene de precizie redusă): cerul de azi, comparat cu cerul din clipa nașterii tale.
+**Version:** 1.2.0 · **Last updated:** 2026-10-19
+
+A personal ephemeris, computed locally from approximate planetary positions (low-precision Keplerian formulas): today's sky, compared with the sky at the moment of your birth.
 
 **Live:** https://chiuta.github.io/HoroScop/
 
-![Captura de ecran](screenshot.png)
+![Screenshot](screenshot.png)
 
-## Ce este
+## What it is
 
-Horoscop este o aplicație dintr-un singur fișier HTML care calculează în browser pozițiile Soarelui, Lunii și ale celor opt planete (elemente orbitale kepleriene, formule cu precizie redusă de tip Schlyter / Meeus), le compară cu tema natală a unui profil și compune o „citire" zilnică. Aplicația precizează în text că astrologia este tratată simbolic și că nu estimează riscuri de sănătate sau de mortalitate.
+Horoscop is a single-HTML-file app that computes in the browser the positions of the Sun, the Moon and the eight planets (Keplerian orbital elements, low-precision formulas of the Schlyter / Meeus type), compares them with the natal chart of a profile and composes a daily "reading". The app states in the text that astrology is treated symbolically and that it does not estimate health or mortality risks.
 
-## Funcții
+## Features
 
-- Profiluri multiple (nume opțional, data, ora și fusul orar UTC±, locul nașterii cu latitudine/longitudine pentru ascendent): „Adaugă", „Editează", „Duplică", „Șterge".
-- Citirea zilei pe secțiuni: Panorama, Suflet & relații, Muncă & bani, Trup & energie, Sfatul zilei; „Copiază citirea de azi".
-- „Cerul de azi", „Săptămâna care vine" (cel mai puternic aspect pe zi), elemente de azi, retrograde, Luna goală de curs, eclipse posibile, cazimi / combust.
-- Tema natală, structura temei, aspecte natale semnificative, rozeta aspectelor, orrery natal 3D (rotire prin tragere).
-- Revoluții solare (de la naștere până azi și proiecție înainte), întoarceri Saturn / Jupiter / Lună.
-- Compatibilitate (sinastrie) simplificată între două profile.
-- „Muzica sferelor": fiecare planetă natală devine un ton („▶ Cântă tema ta" / „■ Oprește").
-- „Portret cosmic": videoclip de aproximativ 6 secunde generat local, descărcabil ca `portret-cosmic.webm`.
-- Opțiune pentru zodiacul sideral (Lahiri, aproximativ).
-- „Calculează cerul pentru data”: alegi o altă dată (1900–2100, ora 12:00 locală) și toate secțiunile (cerul, aspectele, săptămâna, citirea, copierea) se calculează pentru acea zi; „Azi” revine. Data aleasă nu se păstrează între sesiuni.
-- Temă: automată (după preferința sistemului), întunecată sau luminoasă; alegerea se păstrează local.
-- Secțiune „Cum se calculează asta" cu precizia estimată și limitele (nu sunt calculate casele astrologice, doar ascendentul).
+- Multiple profiles (optional name, date, time and UTC± time zone, birthplace with latitude/longitude for the ascendant): "Add", "Edit", "Duplicate", "Delete".
+- The day's reading by sections: Panorama, Soul & relationships, Work & money, Body & energy, Advice of the day; "Copy today's reading".
+- "Today's sky", "The coming week" (the strongest aspect per day), today's elements, retrogrades, Moon void of course, possible eclipses, cazimi / combust.
+- The natal chart, the structure of the chart, significant natal aspects, the aspect rosette, a 3D natal orrery (rotate by dragging).
+- Solar returns (from birth until today and a projection forward), Saturn / Jupiter / Moon returns.
+- Simplified compatibility (synastry) between two profiles.
+- "Music of the spheres": each natal planet becomes a tone ("▶ Play your chart" / "■ Stop").
+- "Cosmic portrait": a video of about 6 seconds generated locally, downloadable as `portret-cosmic.webm`.
+- Option for the sidereal zodiac (Lahiri, approximate).
+- "Compute the sky for the date": you choose another date (1900–2100, 12:00 local time) and all the sections (the sky, the aspects, the week, the reading, copying) are computed for that day; "Today" returns. The chosen date is not kept between sessions.
+- Theme: automatic (according to the system preference), dark or light; the choice is kept locally.
+- A "How this is computed" section with the estimated accuracy and the limits (the astrological houses are not computed, only the ascendant).
 
-## Funcții noi (1.1.0)
+## New features (1.1.0)
 
-Cardul pliabil **„Efemeride locale (FFF.ephem)”**, la finalul paginii, calculează local (fără rețea), pentru un loc și pentru data aleasă în aplicație („Calculează cerul pentru data”; implicit azi):
+The collapsible card **"Local ephemerides (FFF.ephem)"**, at the bottom of the page, computes locally (without the network), for a place and for the date chosen in the app ("Compute the sky for the date"; today by default):
 
-- **Soare:** răsărit, trecere la meridian (cu altitudinea maximă), apus, durata zilei și crepusculele civil, nautic, astronomic.
-- **Lună:** faza, iluminarea, vârsta, distanța, răsărit/apus și următoarele patru faze (lună nouă, primul pătrar, lună plină, ultimul pătrar).
-- **Poziții** pentru Soare, Lună și cele opt planete (+ Pluto): longitudine ecliptică cu semn, altitudine/azimut (cu refracție), răsărit/apus, magnitudine, elongație.
-- **Coloana „Δ”**: diferența, în minute de arc, dintre longitudinea din modelul simplu al aplicației (elemente kepleriene, cel care alimentează citirile) și cea din `FFF.ephem`. La 4 date de probă diferențele au fost: Soare ≤ 0,5′, planete ≤ 8′ (cele mai mari: Pluto, Uranus), Lună până la ≈ 20′. Cifrele arată cât de mult poate greși modelul simplu; citirile și aspectele **nu** au fost modificate.
-- Locul: lat/lon, nume din lista de orașe a aplicației, profilul activ (locul nașterii) sau **GPS cu consimțământ în două trepte** (confirmare în pagină, apoi o singură cerere; nu se salvează). Fusul orar se completează cu cel al browserului și se poate edita (nume IANA).
-- Precizia declarată apare în card (secțiunea „Precizie”) și mai jos.
+- **Sun:** sunrise, meridian transit (with the maximum altitude), sunset, the length of the day and the civil, nautical and astronomical twilights.
+- **Moon:** phase, illumination, age, distance, rise/set and the next four phases (new moon, first quarter, full moon, last quarter).
+- **Positions** for the Sun, the Moon and the eight planets (+ Pluto): ecliptic longitude with sign, altitude/azimuth (with refraction), rise/set, magnitude, elongation.
+- **The "Δ" column**: the difference, in arcminutes, between the longitude from the app's simple model (Keplerian elements, the one that feeds the readings) and that from `FFF.ephem`. At 4 test dates the differences were: Sun ≤ 0.5′, planets ≤ 8′ (the largest: Pluto, Uranus), Moon up to ≈ 20′. The figures show how far the simple model can be wrong; the readings and aspects were **not** changed.
+- The place: lat/lon, a name from the app's list of cities, the active profile (birthplace) or **GPS with two-step consent** (in-page confirmation, then a single request; it is not saved). The time zone is filled in with the browser's and can be edited (IANA name).
+- The declared accuracy appears in the card (the "Accuracy" section) and below.
 
-Cardul este numai în limba română, ca restul aplicației (aplicația nu are sistem i18n), și se ascunde la imprimare.
+The card is in Romanian only, like the rest of the app (the app has no i18n system), and is hidden when printing.
 
-## Manual de utilizare
+## User guide
 
-1. Apasă „Adaugă primul profil" (sau „Adaugă").
-2. Completează data nașterii; opțional numele, ora, fusul orar UTC± (România: +2 iarna, +3 vara) și latitudinea/longitudinea locului. Fără oră, ascendentul nu poate fi calculat.
-3. Apasă „Salvează profilul" (sau „Renunță").
-4. Citește secțiunile zilei; „↻ Actualizează acum" recalculează cerul.
-5. Bifează opțiunea pentru zodiac sideral dacă dorești; din „Calculează cerul pentru data” poți vedea cerul într-o altă zi; din „Temă” alegi aspectul.
-6. Pentru muzică apasă „▶ Cântă tema ta"; pentru video „🎬 Generează portretul", apoi descarcă fișierul.
-7. „Exportă profiluri" salvează profilurile într-un fișier; „Importă profiluri" le reîncarcă; „Șterge tot" le elimină. Tasta Escape închide formularul de profil (dacă există alte profiluri).
+1. Press "Add your first profile" (or "Add").
+2. Fill in the date of birth; optionally the name, the time, the UTC± time zone (Romania: +2 in winter, +3 in summer) and the latitude/longitude of the place. Without a time, the ascendant cannot be computed.
+3. Press "Save profile" (or "Cancel").
+4. Read the day's sections; "↻ Update now" recomputes the sky.
+5. Tick the sidereal zodiac option if you wish; from "Compute the sky for the date" you can see the sky on another day; from "Theme" you choose the appearance.
+6. For music press "▶ Play your chart"; for video "🎬 Generate the portrait", then download the file.
+7. "Export profiles" saves the profiles to a file; "Import profiles" reloads them; "Delete all" removes them. The Escape key closes the profile form (if there are other profiles).
 
-## Confidențialitate și rețea
+## Privacy and network
 
-- Local: profilurile se păstrează în `localStorage` (`horoscopFF_profiles_v1`, profilul activ `horoscopFF_active_v1`, opțiunea sideral `horoscopFF_sidereal_v1`, tema `horoscopFF_theme_v1`). Dacă stocarea nu este disponibilă (mod privat), aplicația afișează un avertisment și profilurile nu se păstrează fără export.
-- Rețea: în codul verificat nu există apeluri `fetch`, scripturi sau resurse externe; calculele se fac în browser.
-- Interfața este în limba română (fără sistem i18n; kitul oferă hu/de doar în propriile dialoguri). Traducerile automate ale kitului fr/it/es/pt/hu/de nu sunt verificate nativ.
+- Local: profiles are kept in `localStorage` (`horoscopFF_profiles_v1`, the active profile `horoscopFF_active_v1`, the sidereal option `horoscopFF_sidereal_v1`, the theme `horoscopFF_theme_v1`). If storage is unavailable (private mode), the app shows a warning and the profiles are not kept without an export.
+- Network: in the verified code there are no `fetch` calls, scripts or external resources; the calculations are done in the browser.
+- The interface is in Romanian (no i18n system; the kit offers hu/de only in its own dialogs). The kit's machine translations fr/it/es/pt/hu/de are not checked by native speakers.
 
-- 1.1.0: **geolocația** (`navigator.geolocation`) se folosește doar dacă apeși „Folosește locația mea (GPS)” din cardul de efemeride și confirmi în pagină. Nu există cereri de rețea noi și nu se salvează nimic nou în `localStorage` (cardul nu are stare persistentă). Kitul `fff-kit` (`core`, `label`, `bundle`, `ephem`) adaugă butonul de transparență și indexul `fff.horoscop.__keys` al cheilor deja existente.
-## Avertisment
+- 1.1.0: **geolocation** (`navigator.geolocation`) is used only if you press "Use my location (GPS)" in the ephemerides card and confirm in the page. There are no new network requests and nothing new is saved in `localStorage` (the card has no persistent state). The `fff-kit` kit (`core`, `label`, `bundle`, `ephem`) adds the transparency button and the index `fff.horoscop.__keys` of the already existing keys.
+## Warning
 
-Conținut informativ, simbolic și de divertisment; nu înlocuiește sfatul medical, juridic sau financiar. Astrologia nu are validare științifică: pozițiile planetelor sunt calcule astronomice (cu precizie redusă, formule de tip Schlyter / Meeus), dar interpretările („citirile”) sunt tradiție culturală, nu predicții validate. Aceeași notă apare în subsolul aplicației.
+Informative, symbolic and entertainment content; it does not replace medical, legal or financial advice. Astrology has no scientific validation: the planetary positions are astronomical calculations (low-precision, Schlyter / Meeus-type formulas), but the interpretations (the "readings") are cultural tradition, not validated predictions. The same note appears in the app's footer.
 
-## Limite (funcțiile noi)
+## Limits (the new features)
 
-- **Efemeride locale — precizie.** Împotriva modelului fizic de referință (JPL DE421/DE423) pozițiile aparente ale Soarelui și planetelor diferă cu ≤ 3″ (Neptun ≤ 5″, Pluto ≤ 7″), ale Lunii cu ≤ 1,5″; răsăritul/apusul Soarelui ≤ 6 s, ale Lunii ≤ 25 s; fazele ≤ 30 s. Față de pyephem 4.2.1 (test în `tests/`): răsărit/apus ≤ 0,5 s, faze ≤ 6 s, alt/az ≤ 0,003°. Orele sunt afișate rotunjit la minut. **În realitate** răsăritul/apusul diferă cu minute din cauza refracției reale, a reliefului și a altitudinii (nemodelate), iar ΔT e incert cu ≈ ±1 s în 2027. Magnitudinile sunt orientative. Nu e potrivit pentru navigație sau observații astrometrice.
-- Restul aplicației (citiri, aspecte, teme natale) folosește în continuare modelul simplu cu precizie redusă; efemeridele noi nu îl înlocuiesc. Nu sunt calculate casele astrologice cu `FFF.ephem`.
+- **Local ephemerides — accuracy.** Against the reference physical model (JPL DE421/DE423), the apparent positions of the Sun and planets differ by ≤ 3″ (Neptune ≤ 5″, Pluto ≤ 7″), those of the Moon by ≤ 1.5″; sunrise/sunset of the Sun ≤ 6 s, of the Moon ≤ 25 s; phases ≤ 30 s. Against pyephem 4.2.1 (test in `tests/`): rise/set ≤ 0.5 s, phases ≤ 6 s, alt/az ≤ 0.003°. Times are displayed rounded to the minute. **In reality** sunrise/sunset differ by minutes because of real refraction, relief and altitude (not modelled), and ΔT is uncertain by about ±1 s in 2027. Magnitudes are indicative. Not suitable for navigation or astrometric observations.
+- The rest of the app (readings, aspects, natal charts) still uses the simple low-precision model; the new ephemerides do not replace it. The astrological houses are not computed with `FFF.ephem`.
 
-## Teste
+## Tests
 
-`node tests/fff-r8.test.mjs` (Playwright din `/opt/node-tools`, Chromium local, rețeaua blocată; `tests/_lib.mjs` are ajutoarele comune). Valorile de referință sunt în `tests/ref-c3a.json`: momentele de răsărit/apus/trecere (Soare, Lună; 5 locuri × 4 date), 56 de momente de fază și 54 de poziții alt/az, calculate independent cu **pyephem 4.2.1** (folosit doar offline pentru a genera numerele; nu face parte din aplicație). Fiecare test are pragul scris în cod; testul de accesibilitate (axe-core, `bypassCSP`) rulează și în dialoguri/panouri deschise, la 1280×800 și 360×740.
+`node tests/fff-r8.test.mjs` (Playwright from `/opt/node-tools`, local Chromium, network blocked; `tests/_lib.mjs` has the common helpers). The reference values are in `tests/ref-c3a.json`: the rise/set/transit times (Sun, Moon; 5 places × 4 dates), 56 phase times and 54 alt/az positions, computed independently with **pyephem 4.2.1** (used only offline to generate the numbers; it is not part of the app). Each test has its threshold written in the code; the accessibility test (axe-core, `bypassCSP`) also runs in open dialogs/panels, at 1280×800 and 360×740.
 
-## Rulare locală / offline
+## Local / offline use
 
-Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet în codul verificat.
+Download `index.html` and open it in a browser; in the verified code it does not need the internet.
 
-## Licență
+## License
 
-MIT — vezi fișierul `LICENSE`. © 2026 Alexandru-Ionuț Chiuță (Alexio). Eventualele biblioteci terțe incluse în fișier își păstrează licențele proprii.
+MIT — see the `LICENSE` file. © 2026 Alexandru-Ionuț Chiuță (Alexio). Any third-party libraries included in the file keep their own licenses.
 
 License: MIT (see the LICENSE file). Contact: alexio@trom.tf
 
-Aceeași declarație apare în antetul HTML și în subsolul aplicației. Textul licenței se află în fișierul LICENSE.
+The same statement appears in the HTML header and in the app's footer. The license text is in the LICENSE file.
 
-## Istoric / Changelog
+## History / Changelog
 
-### 19 octombrie 2026 (v1.2.0)
-- Nou: „↗ Cerul nașterii tale, în TerRa” (doar cu oră și loc); avertisment de istoric; loc rotunjit la ~1 km; numele nu se trimite.
+### 19 October 2026 (v1.2.0)
+- New: "↗ Your birth sky, in TerRa" (only with time and place); a history warning; the place rounded to ~1 km; the name is not sent.
 
 ### 1.1.0 — 2026-10-14
-- Nou: cardul „Efemeride locale (FFF.ephem)” (răsărit/apus/trecere, crepuscule, faze ale Lunii, poziții alt/az, coloana Δ față de modelul simplu, GPS cu consimțământ în două trepte, precizie declarată); kitul `fff-kit` (`core`, `label`, `bundle`, `ephem`); `tests/fff-r8.test.mjs` (47 de verificări, inclusiv axe în tema luminoasă și cea întunecată, la 1280×800 și 360×740). Comparație înainte/după la 1280×800: pagina inițială identică pixel cu pixel (cardul e închis implicit), deci captura de ecran nu s-a schimbat.
+- New: the "Local ephemerides (FFF.ephem)" card (rise/set/transit, twilights, Moon phases, alt/az positions, the Δ column against the simple model, GPS with two-step consent, declared accuracy); the `fff-kit` kit (`core`, `label`, `bundle`, `ephem`); `tests/fff-r8.test.mjs` (47 checks, including axe in the light and dark themes, at 1280×800 and 360×740). Before/after comparison at 1280×800: the initial page is pixel-for-pixel identical (the card is closed by default), so the screenshot did not change.
 
-- 1.0.0 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație (prima versiune numerotată; în subsol, în locul vechii mențiuni „actualizat 11 octombrie 2026”).
+- 1.0.0 — 2026-10-12: the version and the date of the last update are shown in the app (the first numbered version; in the footer, in place of the old "updated 11 October 2026" mention).
 
-Runda 7:
-- **Verificare numerică documentată** (formulele nu au fost modificate): Soarele la 13.10.1992 0h TD → 199,902° față de 199,906° (Meeus, *Astronomical Algorithms*, ex. 25.a, metoda precisă, valoare reconfirmată prin pymeeus); Luna la 12.04.1992 0h TD → 133,221° față de 133,163° (ex. 47.a; diferență 0,06°); GMST la 10.04.1987 0h UT coincide cu exemplul Meeus 12.a (197,6932°); echinocțiul din 20.03.2026, 14:46 UTC → longitudine solară 0,004°. Ascendentul a fost comparat pe 60 de combinații aleatorii (ani 1900–2099, latitudini ±70°, orice longitudine) cu o metodă numerică independentă — diferență maximă sub 0,03°. Rezumatul apare în secțiunea „Cum se calculează asta”. Momentele sunt tratate ca UTC (fără ΔT ≈ 1 minut).
-- Hash-ul CSP recalculat; axe-core = 0 violări la 1280 și 360 px.
+Round 7:
+- **Documented numerical verification** (the formulas were not modified): the Sun on 13.10.1992 0h TD → 199.902° versus 199.906° (Meeus, *Astronomical Algorithms*, ex. 25.a, precise method, value reconfirmed through pymeeus); the Moon on 12.04.1992 0h TD → 133.221° versus 133.163° (ex. 47.a; difference 0.06°); GMST on 10.04.1987 0h UT matches Meeus example 12.a (197.6932°); the equinox of 20.03.2026, 14:46 UTC → solar longitude 0.004°. The ascendant was compared on 60 random combinations (years 1900–2099, latitudes ±70°, any longitude) with an independent numerical method — maximum difference under 0.03°. The summary appears in the "How this is computed" section. The moments are treated as UTC (without ΔT ≈ 1 minute).
+- CSP hash recalculated; axe-core = 0 violations at 1280 and 360 px.
 
-Runda 6:
-- Nou: „Calculează cerul pentru data” (1900–2100) și alegerea temei (automată / întunecată / luminoasă, cu paletă luminoasă și suport pentru `prefers-color-scheme`). Textele „azi” se adaptează când e aleasă altă dată. Hash-ul CSP recalculat; captura de ecran reîmprospătată.
-- Sinastria: cât timp nu e ales niciun profil, cardul afișează acum „Alege un profil din listă pentru a vedea compatibilitatea.”, în loc să rămână gol.
-- Accesibilitate: conținutul paginii este acum într-un `<main>` (înainte exista doar când graficul era vizibil); cele două liste derulabile de revoluții solare au etichete distincte; axe-core = 0 violări, cu și fără profil, la 1280 și 360 px.
-- Politica CSP leagă acum scriptul prin hash (înainte `'unsafe-inline'`).
-- Calculele astronomice sunt dinamice (data curentă); formulele nu au fost modificate.
+Round 6:
+- New: "Compute the sky for the date" (1900–2100) and the theme choice (automatic / dark / light, with a light palette and support for `prefers-color-scheme`). The "today" texts adapt when another date is chosen. CSP hash recalculated; screenshot refreshed.
+- Synastry: as long as no profile is chosen, the card now shows "Choose a profile from the list to see compatibility.", instead of staying empty.
+- Accessibility: the page content is now in a `<main>` (previously it existed only when the chart was visible); the two scrollable lists of solar returns have distinct labels; axe-core = 0 violations, with and without a profile, at 1280 and 360 px.
+- The CSP policy now binds the script by hash (previously `'unsafe-inline'`).
+- The astronomical calculations are dynamic (the current date); the formulas were not modified.
 
-## Autor
+## Author
 
 Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf
 
-## English summary
+## Summary
 
 Horoscop · fără frontiere is a single-file Romanian-language personal ephemeris: it computes planetary positions in the browser, compares today's sky with a natal chart, and shows daily readings, aspects, solar returns, synastry, a 3D natal orrery, planet-tone music and a downloadable WebM portrait. Profiles live in localStorage with JSON export/import. No network requests were found in the code. License: MIT (see the LICENSE file) (contact: alexio@trom.tf).
 
 ## Audit
 
-Audit: 2026-10-10 (rundă 2, 2026-10-11: sloganul „comparat exact” / „poziții reale” reformulat pentru consecvență cu secțiunea de metodologie — precizie redusă, semnul poate diferi cu o zi la cuspide) — verificat: 0 erori JS, fără cereri de rețea (CSP `default-src 'none'; connect-src 'none'`), numele de profil nu produce XSS (testat cu markup în nume și loc). Corectat contrastul din subsol, lista derulabilă a revoluțiilor solare (acum accesibilă cu tastatura) și adăugat avertismentul de mai sus.
+Audit: 2026-10-10 (round 2, 2026-10-11: the slogan "compared exactly" / "real positions" reworded for consistency with the methodology section — low precision, the sign may differ by a day at the cusps) — verified: 0 JS errors, no network requests (CSP `default-src 'none'; connect-src 'none'`), the profile name does not produce XSS (tested with markup in the name and place). Fixed the footer contrast, the scrollable list of solar returns (now keyboard-accessible) and added the warning above.
 
-Runda 3 (2026-10-11): declarație explicită de licență nedeclarată (antet, subsol, README) și notă de avertisment astrologic vizibilă sub titlu, în RO și EN.
+Round 3 (2026-10-11): an explicit license statement that had not been declared (header, footer, README) and a visible astrological warning note under the title, in RO and EN.
