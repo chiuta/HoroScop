@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.3.5 · **Utolsó frissítés:** 2026-10-22
+**Verzió:** 1.3.6 · **Utolsó frissítés:** 2026-10-22
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -87,6 +87,10 @@ Licenc: MIT (lásd a LICENSE fájlt). Elérhetőség: alexio@trom.tf
 Ugyanez a nyilatkozat szerepel a HTML-fejlécben és az alkalmazás láblécében. A licenc szövege a LICENSE fájlban található.
 
 ## Előzmények / Changelog
+
+### 1.3.6 — 2026-10-22
+
+fff-kit 1.1.2: PBKDF2 600 000 iterációval, clickjacking elleni védelem.
 
 ### 1.3.5 — 2026-10-22
 - A böngésző confirm()/prompt() ablakait saját, mind a 8 nyelvre lefordított párbeszédablakok váltják (a profil törlése, az összes adat törlése (két lépés), kézi másolás); a sziderikus állatöv jelölőnégyzete 24 px; az „eyebrow” címke 12 px.

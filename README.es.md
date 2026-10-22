@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 1.3.5 · **Última actualización:** 2026-10-22
+**Versión:** 1.3.6 · **Última actualización:** 2026-10-22
 
 Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -87,6 +87,10 @@ Licencia: MIT (consulta el archivo LICENSE). Contacto: alexio@trom.tf
 La misma declaración aparece en la cabecera HTML y en el pie de página de la aplicación. El texto de la licencia está en el archivo LICENSE.
 
 ## Historial / Changelog
+
+### 1.3.6 — 2026-10-22
+
+fff-kit 1.1.2: PBKDF2 con 600.000 iteraciones, protección anti-clickjacking.
 
 ### 1.3.5 — 2026-10-22
 - Los cuadros confirm()/prompt() del navegador sustituidos por diálogos propios traducidos a los 8 idiomas (borrado del perfil, borrado de todos los datos (dos pasos), copia manual); casilla del zodiaco sideral de 24 px; etiqueta «eyebrow» a 12 px.
