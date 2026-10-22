@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.3.4 · **Ultima actualizare:** 2026-10-22
+**Versiune:** 1.3.5 · **Ultima actualizare:** 2026-10-22
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -87,6 +87,9 @@ Licență: MIT (vezi fișierul LICENSE). Contact: alexio@trom.tf
 Aceeași declarație apare în antetul HTML și în subsolul aplicației. Textul licenței se află în fișierul LICENSE.
 
 ## Istoric / Changelog
+
+### 1.3.5 — 2026-10-22
+- Casetele confirm()/prompt() ale browserului înlocuite cu dialoguri proprii, traduse în cele 8 limbi (ștergerea profilului, ștergerea tuturor datelor (doi pași), copierea manuală); căsuța pentru zodiacul sideral de 24 px; eticheta „eyebrow” la 12 px.
 
 ### 1.3.4 — 2026-10-22
 - Footer: removed duplicated license and disclaimer lines (Romanian).

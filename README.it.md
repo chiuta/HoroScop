@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 1.3.4 · **Ultimo aggiornamento:** 2026-10-22
+**Versione:** 1.3.5 · **Ultimo aggiornamento:** 2026-10-22
 
 Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -87,6 +87,9 @@ Licenza: MIT (vedi il file LICENSE). Contatto: alexio@trom.tf
 La stessa dichiarazione compare nell'intestazione HTML e nel piè di pagina dell'applicazione. Il testo della licenza si trova nel file LICENSE.
 
 ## Cronologia / Changelog
+
+### 1.3.5 — 2026-10-22
+- Le finestre confirm()/prompt() del browser sostituite da finestre di dialogo proprie, tradotte nelle 8 lingue (eliminazione del profilo, cancellazione di tutti i dati (due passaggi), copia manuale); casella dello zodiaco siderale da 24 px; etichetta «eyebrow» a 12 px.
 
 ### 1.3.4 — 2026-10-22
 - Footer: removed duplicated license and disclaimer lines (Romanian).
