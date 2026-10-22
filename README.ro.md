@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.3.3 · **Ultima actualizare:** 2026-10-22
+**Versiune:** 1.3.4 · **Ultima actualizare:** 2026-10-22
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -87,6 +87,9 @@ Licență: MIT (vezi fișierul LICENSE). Contact: alexio@trom.tf
 Aceeași declarație apare în antetul HTML și în subsolul aplicației. Textul licenței se află în fișierul LICENSE.
 
 ## Istoric / Changelog
+
+### 1.3.4 — 2026-10-22
+- Footer: removed duplicated license and disclaimer lines (Romanian).
 
 ### 1.3.3 — 2026-10-22
 - Fix de traducere: descrierea (și numele) din panoul de transparență urmează acum limba interfeței. Aria-label-ul rozetei aspectelor este tradus, iar liniile de subsol rămase în engleză în interfața română sunt acum în română.

@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 1.3.3 · **Última actualización:** 2026-10-22
+**Versión:** 1.3.4 · **Última actualización:** 2026-10-22
 
 Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -87,6 +87,9 @@ Licencia: MIT (consulta el archivo LICENSE). Contacto: alexio@trom.tf
 La misma declaración aparece en la cabecera HTML y en el pie de página de la aplicación. El texto de la licencia está en el archivo LICENSE.
 
 ## Historial / Changelog
+
+### 1.3.4 — 2026-10-22
+- Footer: removed duplicated license and disclaimer lines (Romanian).
 
 ### 1.3.3 — 2026-10-22
 - Corrección de traducción: la descripción (y el nombre) del panel de transparencia siguen ahora el idioma de la interfaz. El aria-label del rosetón de aspectos está traducido y las líneas del pie de página que seguían en inglés en la interfaz rumana ahora están en rumano.

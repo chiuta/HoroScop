@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.3.3 · **Last updated:** 2026-10-22
+**Version:** 1.3.4 · **Last updated:** 2026-10-22
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -87,6 +87,9 @@ License: MIT (see the LICENSE file). Contact: alexio@trom.tf
 The same statement appears in the HTML header and in the app's footer. The license text is in the LICENSE file.
 
 ## History / Changelog
+
+### 1.3.4 — 2026-10-22
+- Footer: removed duplicated license and disclaimer lines (Romanian).
 
 ### 1.3.3 — 2026-10-22
 - Translation fix: the description (and name) in the transparency panel now follow the interface language. The aspect rosette aria-label is translated, and the English-only footer lines in the Romanian interface are now Romanian.
