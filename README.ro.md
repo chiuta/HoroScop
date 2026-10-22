@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.3.6 · **Ultima actualizare:** 2026-10-22
+**Versiune:** 1.3.7 · **Ultima actualizare:** 2026-10-22
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -87,6 +87,10 @@ Licență: MIT (vezi fișierul LICENSE). Contact: alexio@trom.tf
 Aceeași declarație apare în antetul HTML și în subsolul aplicației. Textul licenței se află în fișierul LICENSE.
 
 ## Istoric / Changelog
+
+### 1.3.7 — 2026-10-22
+
+fff-kit 1.1.4: ținte tactile și text minim.
 
 ### 1.3.6 — 2026-10-22
 

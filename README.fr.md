@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 1.3.6 · **Dernière mise à jour :** 2026-10-22
+**Version :** 1.3.7 · **Dernière mise à jour :** 2026-10-22
 
 Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -87,6 +87,10 @@ Licence : MIT (voir le fichier LICENSE). Contact : alexio@trom.tf
 La même déclaration figure dans l'en-tête HTML et dans le pied de page de l'application. Le texte de la licence se trouve dans le fichier LICENSE.
 
 ## Historique / Changelog
+
+### 1.3.7 — 2026-10-22
+
+fff-kit 1.1.4 : cibles tactiles et taille de texte minimale.
 
 ### 1.3.6 — 2026-10-22
 

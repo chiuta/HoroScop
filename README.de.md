@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.3.6 · **Zuletzt aktualisiert:** 2026-10-22
+**Version:** 1.3.7 · **Zuletzt aktualisiert:** 2026-10-22
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -87,6 +87,10 @@ Lizenz: MIT (siehe Datei LICENSE). Kontakt: alexio@trom.tf
 Dieselbe Erklärung steht im HTML-Kopf und in der Fußzeile der App. Der Lizenztext befindet sich in der Datei LICENSE.
 
 ## Verlauf / Changelog
+
+### 1.3.7 — 2026-10-22
+
+fff-kit 1.1.4: Touch-Ziele und Mindestschriftgröße.
 
 ### 1.3.6 — 2026-10-22
 
