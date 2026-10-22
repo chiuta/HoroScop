@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 1.3.2 · **Dernière mise à jour :** 2026-10-22
+**Version :** 1.3.3 · **Dernière mise à jour :** 2026-10-22
 
 Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -87,6 +87,9 @@ Licence : MIT (voir le fichier LICENSE). Contact : alexio@trom.tf
 La même déclaration figure dans l'en-tête HTML et dans le pied de page de l'application. Le texte de la licence se trouve dans le fichier LICENSE.
 
 ## Historique / Changelog
+
+### 1.3.3 — 2026-10-22
+- Correctif de traduction : la description (et le nom) du panneau de transparence suivent désormais la langue de l'interface. L'aria-label de la rosace des aspects est traduit, et les lignes de pied de page restées en anglais dans l'interface roumaine sont désormais en roumain.
 
 ### 1.3.2 — 2026-10-22
 - Correction de traduction : le statut « aucun profil enregistré » se met à jour immédiatement lors d'un changement de langue pendant que le formulaire de profil est ouvert ; le README roumain ne contient plus de lignes en anglais.
