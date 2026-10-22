@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.3.1 · **Zuletzt aktualisiert:** 2026-10-19
+**Version:** 1.3.2 · **Zuletzt aktualisiert:** 2026-10-22
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -87,6 +87,9 @@ Lizenz: MIT (siehe Datei LICENSE). Kontakt: alexio@trom.tf
 Dieselbe Erklärung steht im HTML-Kopf und in der Fußzeile der App. Der Lizenztext befindet sich in der Datei LICENSE.
 
 ## Verlauf / Changelog
+
+### 1.3.2 — 2026-10-22
+- Übersetzungskorrektur: Der Status „Kein Profil gespeichert“ wird beim Sprachwechsel bei geöffnetem Profilformular sofort aktualisiert; das rumänische README enthält keine englischen Zeilen mehr.
 
 ### 19. Oktober 2026 (v1.2.0)
 - Neu: „↗ Der Himmel deiner Geburt, in TerRa“ (nur mit Uhrzeit und Ort); Verlaufshinweis; Ort auf ~1 km gerundet; der Name wird nicht gesendet.

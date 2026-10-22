@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.3.1 · **Utolsó frissítés:** 2026-10-19
+**Verzió:** 1.3.2 · **Utolsó frissítés:** 2026-10-22
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -87,6 +87,9 @@ Licenc: MIT (lásd a LICENSE fájlt). Elérhetőség: alexio@trom.tf
 Ugyanez a nyilatkozat szerepel a HTML-fejlécben és az alkalmazás láblécében. A licenc szövege a LICENSE fájlban található.
 
 ## Előzmények / Changelog
+
+### 1.3.2 — 2026-10-22
+- Fordítási javítás: a „Nincs mentett profil” állapot azonnal frissül, ha a profilűrlap nyitva van közben nyelvet váltunk; a román README már nem tartalmaz angol sorokat.
 
 ### 2026. október 19. (v1.2.0)
 - Új: „↗ A születésed égboltja, a TerRában” (csak idővel és hellyel); előzményfigyelmeztetés; a hely ~1 km-re kerekítve; a név nem kerül elküldésre.

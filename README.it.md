@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 1.3.1 · **Ultimo aggiornamento:** 2026-10-19
+**Versione:** 1.3.2 · **Ultimo aggiornamento:** 2026-10-22
 
 Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -87,6 +87,9 @@ Licenza: MIT (vedi il file LICENSE). Contatto: alexio@trom.tf
 La stessa dichiarazione compare nell'intestazione HTML e nel piè di pagina dell'applicazione. Il testo della licenza si trova nel file LICENSE.
 
 ## Cronologia / Changelog
+
+### 1.3.2 — 2026-10-22
+- Correzione di traduzione: lo stato «nessun profilo salvato» si aggiorna subito al cambio di lingua mentre il modulo del profilo è aperto; il README rumeno non contiene più righe in inglese.
 
 ### 19 ottobre 2026 (v1.2.0)
 - Nuovo: «↗ Il cielo della tua nascita, in TerRa» (solo con ora e luogo); avviso di cronologia; luogo arrotondato a ~1 km; il nome non viene inviato.

@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.3.1 · **Ultima actualizare:** 2026-10-19
+**Versiune:** 1.3.2 · **Ultima actualizare:** 2026-10-22
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -82,11 +82,14 @@ Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet în
 
 MIT — vezi fișierul `LICENSE`. © 2026 Alexandru-Ionuț Chiuță (Alexio). Eventualele biblioteci terțe incluse în fișier își păstrează licențele proprii.
 
-License: MIT (see the LICENSE file). Contact: alexio@trom.tf
+Licență: MIT (vezi fișierul LICENSE). Contact: alexio@trom.tf
 
 Aceeași declarație apare în antetul HTML și în subsolul aplicației. Textul licenței se află în fișierul LICENSE.
 
 ## Istoric / Changelog
+
+### 1.3.2 — 2026-10-22
+- Corecție de traducere: starea „niciun profil salvat” se actualizează imediat la schimbarea limbii cât timp formularul de profil e deschis; README-ul românesc nu mai conține rânduri în engleză.
 
 ### 19 octombrie 2026 (v1.2.0)
 - Nou: „↗ Cerul nașterii tale, în TerRa” (doar cu oră și loc); avertisment de istoric; loc rotunjit la ~1 km; numele nu se trimite.
