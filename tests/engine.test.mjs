@@ -1,0 +1,45 @@
+// HoroScop 2.0.0 — motor efemeride (comutator) + diagrama mișcării planetelor pe 12 luni.
+import {launch, check, summary, hOverflow} from "./_lib.mjs";
+const CLK = "2026-10-14T09:00:00Z";
+const {browser, page, st} = await launch({clock: CLK, timezoneId: "Europe/Bucharest"});
+await page.waitForTimeout(2500);
+const dEq = (Date.UTC(2026, 8, 23, 0, 5) - Date.UTC(2000, 0, 1, 12)) / 86400000; // echinocțiul de toamnă 2026, ~00:05 UT
+console.log("1. motor");
+check("0 erori / 0 rețea", st.errs.length === 0 && st.net.length === 0, [st.errs, st.net]);
+check("kit activ implicit", await page.evaluate(() => window._hsTest.engineActive()));
+check("comutatorul bifat implicit", await page.isChecked("#engineToggle"));
+const lonOn = await page.evaluate(d => window._hsTest.sunLongitude(d), dEq);
+const lonSimple = await page.evaluate(d => window._hsTest.sunLongitudeS(d), dEq);
+check("Soarele la ~echinocțiu aproape de 180° (±0.3°)", Math.abs(lonOn - 180) < 0.3, lonOn);
+check("motorul simplu diferă de cel precis cu < 1°", Math.abs(lonOn - lonSimple) < 1, [lonOn, lonSimple]);
+await page.click("#engineToggle");
+check("după dezactivare: stocat 'simple'", (await page.evaluate(() => localStorage.getItem("horoscopFF_engine_v1"))) === "simple");
+check("motor inactiv", !(await page.evaluate(() => window._hsTest.engineActive())));
+const lonOff = await page.evaluate(d => window._hsTest.sunLongitude(d), dEq);
+check("fără kit, sunLongitude = formula simplă", Math.abs(lonOff - lonSimple) < 1e-9, [lonOff, lonSimple]);
+check("nota de motor se actualizează", /simplu|Simple/i.test(await page.textContent("#engineNote")));
+await page.reload(); await page.waitForTimeout(2000);
+check("setarea persistă la reîncărcare", !(await page.isChecked("#engineToggle")));
+await page.click("#engineToggle");
+check("re-activare", await page.evaluate(() => window._hsTest.engineActive()));
+
+console.log("2. diagrama mișcării");
+await page.click("#mvCard > summary");
+await page.waitForSelector("#mvHost .mv-row", {timeout: 15000});
+const rows = await page.$$eval("#mvHost .mv-row", e => e.map(r => [r.dataset.planet, +r.dataset.retro]));
+check("8 planete desenate", rows.length === 8, rows);
+check("Mercur are cel puțin 2 perioade retrograde în 12 luni", rows.find(r => r[0] === "mercur")[1] >= 2, rows);
+check("Jupiter are cel mult 1-2 perioade retrograde", rows.find(r => r[0] === "jupiter")[1] <= 2);
+check("fiecare rând are svg cu aria-label", (await page.$$eval("#mvHost svg", s => s.every(x => x.getAttribute("aria-label")))));
+check("listă de date vizibilă", (await page.$$eval("#mvHost li", l => l.length)) >= 8);
+const ser = await page.evaluate(() => window._hsTest.mvCompute("mercur", 9783, 366));
+check("seria are 367 puncte", ser.length === 367);
+check("runs: serie sintetică", JSON.stringify(await page.evaluate(() => window._hsTest.mvRuns([0, 1, 2, 1.5, 1, 2, 3]))) === JSON.stringify([{a: 2, b: 4}]));
+check("avertisment informativ în card", /Informativ|Informative/.test(await page.textContent("#mvCard")));
+check("fără depășire orizontală", (await hOverflow(page)) <= 0);
+console.log("3. engleză");
+await page.selectOption("#langSel", "en"); await page.waitForTimeout(500);
+check("etichetă engleză", /Precise calculation engine/.test(await page.textContent("label:has(#engineToggle)")));
+check("0 erori la final", st.errs.length === 0, st.errs);
+await browser.close();
+summary();
