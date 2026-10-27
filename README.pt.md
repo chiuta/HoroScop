@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 2.0.0 · **Última atualização:** 2026-10-26
+**Versão:** 2.0.1 · **Última atualização:** 2026-10-27
+
+**Estado:** estável · **Offline:** completo (sem pedidos de rede)
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -39,6 +41,7 @@ O cartão recolhível **«Efemérides locais (FFF.ephem)»**, no fim da página,
 - **Lua:** fase, iluminação, idade, distância, nascer/pôr e as quatro fases seguintes (lua nova, quarto crescente, lua cheia, quarto minguante).
 - **Posições** do Sol, da Lua e dos oito planetas (+ Plutão): longitude eclítica com signo, altitude/azimute (com refração), nascer/pôr, magnitude, elongação.
 - **A coluna «Δ»**: a diferença, em minutos de arco, entre a longitude do modelo simples da aplicação (elementos keplerianos, o que alimenta as leituras) e a de `FFF.ephem`. Em 4 datas de teste as diferenças foram: Sol ≤ 0,5′, planetas ≤ 8′ (os maiores: Plutão, Úrano), Lua até ≈ 20′. Os números mostram quanto o modelo simples se pode enganar; as leituras e os aspetos **não** foram modificados.
+- **Precisão medida** (2026-10-27): em 499 datas pseudoaleatórias entre 1900 e 2050 (semente fixa), erro absoluto da longitude eclíptica aparente da data face a JPL DE421 (`jplephem` + `de421`; tempo-luz, aberração, precessão-nutação IAU 2006/2000A), em minutos de arco, média / máx. **Modelo simples** (o que alimenta as leituras): Sol 0,22 / 0,88; Lua 8,5 / 22,3; Mercúrio 0,44 / 1,8; Vénus 0,44 / 2,6; Marte 0,56 / 3,1; Júpiter 0,49 / 1,8; Saturno 0,78 / 3,1; Úrano 3,5 / 9,3; Neptuno 0,50 / 1,7; Plutão 6,1 / 9,6. **`FFF.ephem`**: no máximo 0,04′ (≈2,3″) para o Sol e os oito planetas; para a Lua ≲ 0,3″ em média até 2025 e até 0,17′ (≈10″) em 2025–2050, diferença compatível com outra extrapolação de ΔT para datas futuras (não verificado em separado). Usou-se DE421, não NASA JPL Horizons (inacessível a partir do ambiente usado). As casas não são calculadas com `FFF.ephem`: precisão não medida, a verificar.
 - O local: lat/lon, nome da lista de cidades da aplicação, perfil ativo (local de nascimento) ou **GPS com consentimento em dois passos** (confirmação na página, depois um único pedido; não é guardado). O fuso horário é preenchido com o do navegador e pode ser editado (nome IANA).
 - A precisão declarada aparece no cartão (secção «Precisão») e mais abaixo.
 

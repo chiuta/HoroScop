@@ -2,7 +2,9 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.0.0 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 2.0.1 · **Ultima actualizare:** 2026-10-27
+
+**Stare:** stabil · **Offline:** complet (fără cereri de rețea)
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -39,6 +41,7 @@ Cardul pliabil **„Efemeride locale (FFF.ephem)”**, la finalul paginii, calcu
 - **Lună:** faza, iluminarea, vârsta, distanța, răsărit/apus și următoarele patru faze (lună nouă, primul pătrar, lună plină, ultimul pătrar).
 - **Poziții** pentru Soare, Lună și cele opt planete (+ Pluto): longitudine ecliptică cu semn, altitudine/azimut (cu refracție), răsărit/apus, magnitudine, elongație.
 - **Coloana „Δ”**: diferența, în minute de arc, dintre longitudinea din modelul simplu al aplicației (elemente kepleriene, cel care alimentează citirile) și cea din `FFF.ephem`. La 4 date de probă diferențele au fost: Soare ≤ 0,5′, planete ≤ 8′ (cele mai mari: Pluto, Uranus), Lună până la ≈ 20′. Cifrele arată cât de mult poate greși modelul simplu; citirile și aspectele **nu** au fost modificate.
+- **Precizie măsurată** (2026-10-27): pe 499 de date pseudo-aleatorii din 1900–2050 (sămânță fixă), eroarea absolută a longitudinii eclipticale aparente a datei față de JPL DE421 (`jplephem` + `de421`; timp-lumină, aberație, precesie-nutație IAU 2006/2000A), în minute de arc, medie / maxim. **Modelul simplu** (cel care alimentează citirile): Soare 0,22 / 0,88; Lună 8,5 / 22,3; Mercur 0,44 / 1,8; Venus 0,44 / 2,6; Marte 0,56 / 3,1; Jupiter 0,49 / 1,8; Saturn 0,78 / 3,1; Uranus 3,5 / 9,3; Neptun 0,50 / 1,7; Pluto 6,1 / 9,6. **`FFF.ephem`**: cel mult 0,04′ (≈2,3″) pentru Soare și cele opt planete; pentru Lună ≲ 0,3″ în medie până în 2025 și până la 0,17′ (≈10″) în 2025–2050, o diferență compatibilă cu o altă extrapolare a ΔT pentru datele viitoare (neverificată separat). S-a folosit DE421, nu NASA JPL Horizons (inaccesibil din mediul folosit). Casele nu sunt calculate cu `FFF.ephem`: precizie nemăsurată, de verificat.
 - Locul: lat/lon, nume din lista de orașe a aplicației, profilul activ (locul nașterii) sau **GPS cu consimțământ în două trepte** (confirmare în pagină, apoi o singură cerere; nu se salvează). Fusul orar se completează cu cel al browserului și se poate edita (nume IANA).
 - Precizia declarată apare în card (secțiunea „Precizie”) și mai jos.
 
@@ -77,6 +80,10 @@ Conținut informativ, simbolic și de divertisment; nu înlocuiește sfatul medi
 ## Rulare locală / offline
 
 Descarcă `index.html` și deschide-l în browser; nu are nevoie de internet în codul verificat.
+
+## Precizie măsurată (2026-10-27)
+
+README documentează acum erorile **măsurate** ale modelului simplu al aplicației și ale `FFF.ephem` față de JPL DE421, pe 499 de date pseudo-aleatorii din 1900–2050 (vezi punctul „Precizie măsurată”). Cifrele vechi „la 4 date de test” erau doar orientative: eșantionul mai larg arată Soarele până la 0,9′, cele mai multe planete până la ≈3′, Uranus și Pluto ≈9–10′, Luna până la ≈22′. NASA JPL Horizons nu a fost accesibil din mediul folosit; s-a folosit DE421.
 
 ## Licență
 

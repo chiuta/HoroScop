@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 2.0.0 · **Utolsó frissítés:** 2026-10-26
+**Verzió:** 2.0.1 · **Utolsó frissítés:** 2026-10-27
+
+**Állapot:** stabil · **Offline:** teljes (nincs hálózati kérés)
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -39,6 +41,7 @@ Az oldal alján lévő összecsukható **„Helyi efemeriszek (FFF.ephem)”** k
 - **Hold:** fázis, megvilágítottság, kor, távolság, kelte/nyugta és a következő négy fázis (újhold, első negyed, telihold, utolsó negyed).
 - **Pozíciók** a Naphoz, a Holdhoz és a nyolc bolygóhoz (+ Plútó): ekliptikai hosszúság jeggyel, magasság/azimut (refrakcióval), kelte/nyugta, fényesség, elongáció.
 - **A „Δ” oszlop**: az alkalmazás egyszerű modelljéből (kepleri elemek, ez táplálja az olvasatokat) és az `FFF.ephem`-ből származó hosszúság különbsége ívpercben. 4 próbadátumon a különbségek: Nap ≤ 0,5′, bolygók ≤ 8′ (a legnagyobbak: Plútó, Uránusz), Hold legfeljebb ≈ 20′. A számok megmutatják, mennyire tévedhet az egyszerű modell; az olvasatok és a szögek **nem** módosultak.
+- **Mért pontosság** (2026-10-27): 499 álvéletlen dátumon 1900 és 2050 között (rögzített mag), a dátum látszó ekliptikai hosszúságának abszolút hibája a JPL DE421-hez képest (`jplephem` + `de421`; fényidő, aberráció, IAU 2006/2000A precesszió-nutáció), ívpercben, átlag / max. **Egyszerű modell** (az, amelyik az olvasatokat táplálja): Nap 0,22 / 0,88; Hold 8,5 / 22,3; Merkúr 0,44 / 1,8; Vénusz 0,44 / 2,6; Mars 0,56 / 3,1; Jupiter 0,49 / 1,8; Szaturnusz 0,78 / 3,1; Uránusz 3,5 / 9,3; Neptunusz 0,50 / 1,7; Plútó 6,1 / 9,6. **`FFF.ephem`**: legfeljebb 0,04′ (≈2,3″) a Napra és a nyolc bolygóra; a Holdra 2025-ig átlagosan ≲ 0,3″, 2025–2050 között legfeljebb 0,17′ (≈10″), ami összefér a jövőbeli dátumok eltérő ΔT-extrapolációjával (külön nem ellenőriztem). DE421-et használtam, nem a NASA JPL Horizonst (a használt környezetből nem érhető el). A házakat nem a `FFF.ephem` számolja: a pontosság nincs megmérve, ellenőrzendő.
 - A hely: szél./hossz., név az alkalmazás városlistájából, az aktív profil (születési hely) vagy **GPS kétlépcsős hozzájárulással** (megerősítés az oldalon, majd egyetlen kérés; nem mentődik). Az időzóna a böngészőé alapján töltődik ki, és szerkeszthető (IANA-név).
 - A deklarált pontosság megjelenik a kártyán („Pontosság” szakasz) és lejjebb.
 
