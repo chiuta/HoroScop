@@ -2,7 +2,9 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.0.0 · **Last updated:** 2026-10-26
+**Version:** 2.0.1 · **Last updated:** 2026-10-27
+
+**Status:** stable · **Offline:** complete (no network requests)
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -39,6 +41,7 @@ The collapsible card **"Local ephemerides (FFF.ephem)"**, at the bottom of the p
 - **Moon:** phase, illumination, age, distance, rise/set and the next four phases (new moon, first quarter, full moon, last quarter).
 - **Positions** for the Sun, the Moon and the eight planets (+ Pluto): ecliptic longitude with sign, altitude/azimuth (with refraction), rise/set, magnitude, elongation.
 - **The "Δ" column**: the difference, in arcminutes, between the longitude from the app's simple model (Keplerian elements, the one that feeds the readings) and that from `FFF.ephem`. At 4 test dates the differences were: Sun ≤ 0.5′, planets ≤ 8′ (the largest: Pluto, Uranus), Moon up to ≈ 20′. The figures show how far the simple model can be wrong; the readings and aspects were **not** changed.
+- **Measured accuracy** (2026-10-27): on 499 pseudo-random dates in 1900–2050 (fixed seed), absolute error of the apparent ecliptic longitude of date against JPL DE421 (`jplephem` + `de421`; light-time, aberration, IAU 2006/2000A precession-nutation), in arcminutes, mean / max. **Simple model** (the one that feeds the readings): Sun 0.22 / 0.88; Moon 8.5 / 22.3; Mercury 0.44 / 1.8; Venus 0.44 / 2.6; Mars 0.56 / 3.1; Jupiter 0.49 / 1.8; Saturn 0.78 / 3.1; Uranus 3.5 / 9.3; Neptune 0.50 / 1.7; Pluto 6.1 / 9.6. **`FFF.ephem`**: at most 0.04′ (≈2.3″) for the Sun and the eight planets; for the Moon ≲ 0.3″ on average until 2025 and up to 0.17′ (≈10″) in 2025–2050, a gap consistent with a different ΔT extrapolation for future dates (not separately verified). DE421 was used, not NASA JPL Horizons (unreachable from the environment used). The houses are not computed with `FFF.ephem`: accuracy not measured, to be verified.
 - The place: lat/lon, a name from the app's list of cities, the active profile (birthplace) or **GPS with two-step consent** (in-page confirmation, then a single request; it is not saved). The time zone is filled in with the browser's and can be edited (IANA name).
 - The declared accuracy appears in the card (the "Accuracy" section) and below.
 
@@ -77,6 +80,10 @@ Informative, symbolic and entertainment content; it does not replace medical, le
 ## Local / offline use
 
 Download `index.html` and open it in a browser; in the verified code it does not need the internet.
+
+## Measured accuracy (2026-10-27)
+
+The README now documents **measured** errors of the app's simple model and of `FFF.ephem` against JPL DE421 on 499 pseudo-random dates in 1900–2050 (see the "Measured accuracy" bullet). The old "At 4 test dates" figures were only indicative: the wider sample shows the Sun up to 0.9′, most planets up to ≈3′, Uranus and Pluto ≈9–10′, the Moon up to ≈22′. NASA JPL Horizons was not reachable from the environment used; DE421 was used.
 
 ## License
 
