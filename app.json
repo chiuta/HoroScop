@@ -20,8 +20,8 @@
     "horoscopFF_sidereal_v1",
     "horoscopFF_theme_v1"
   ],
-  "sizeBytes": 1068787,
-  "sha256": "6976470e3e551572b244f6dd1ea99152222936c0db0a2018f28df58cfa4b35d3",
+  "sizeBytes": 1209221,
+  "sha256": "ef89a3c4efc7e860ab13bb670fba1f5808976dd7b05865b153375e9814284c67",
   "csp": {
     "present": true,
     "directives": {
@@ -61,6 +61,10 @@
       "dialog",
       "label",
       "bundle",
+      "qr",
+      "p2p",
+      "sync",
+      "history",
       "ephem"
     ]
   },
@@ -72,6 +76,10 @@
       "dialog",
       "label",
       "bundle",
+      "qr",
+      "p2p",
+      "sync",
+      "history",
       "ephem"
     ]
   },
