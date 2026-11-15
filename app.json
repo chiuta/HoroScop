@@ -10,7 +10,8 @@
     "geolocation",
     "clipboard",
     "serviceWorker",
-    "localStorage"
+    "localStorage",
+    "WebGL"
   ],
   "storageKeys": [
     "horoscopFF_active_v1",
@@ -20,13 +21,13 @@
     "horoscopFF_sidereal_v1",
     "horoscopFF_theme_v1"
   ],
-  "sizeBytes": 1263343,
-  "sha256": "b0811593a775037a29456c88a94e3c4db0d6e0f883a62fe5e24b9aeae5aaf946",
+  "sizeBytes": 1315387,
+  "sha256": "5f0844a1e684b6b811dee3fc09dbd87b0327bc40616469d18a58949a7278681d",
   "csp": {
     "present": true,
     "directives": {
       "default-src": "'none'",
-      "script-src": "sha256×6",
+      "script-src": "sha256×7",
       "style-src": "'unsafe-inline'",
       "connect-src": "'none'",
       "base-uri": "'none'",
