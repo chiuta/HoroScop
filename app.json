@@ -2,8 +2,8 @@
   "schema": 1,
   "slug": "horoscop",
   "name": "Horoscop · fără frontiere",
-  "version": "2.1.1",
-  "updated": "2026-11-15",
+  "version": "2.1.2",
+  "updated": "2026-11-17",
   "description": "O efemeridă personală, calculată local: cerul de azi, comparat cu cerul din clipa nașterii tale. Fără cont, fără server.",
   "egress": [],
   "permissions": [
@@ -21,13 +21,13 @@
     "horoscopFF_sidereal_v1",
     "horoscopFF_theme_v1"
   ],
-  "sizeBytes": 1376365,
-  "sha256": "275ec166e0f3533a03ada4f76c2f1250e2f850e095866bd3b6e7705e5e012e26",
+  "sizeBytes": 1442683,
+  "sha256": "7ad3d2a76a7d4ab9598f9069980ec18bebb5c89914e2e277cb33b6dc88a33151",
   "csp": {
     "present": true,
     "directives": {
       "default-src": "'none'",
-      "script-src": "sha256×7",
+      "script-src": "sha256×9",
       "style-src": "'unsafe-inline'",
       "connect-src": "'none'",
       "base-uri": "'none'",
@@ -75,7 +75,7 @@
     ]
   },
   "kit": {
-    "version": "1.7.0",
+    "version": "1.8.0",
     "modules": [
       "core",
       "store",
